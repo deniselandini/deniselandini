@@ -1,836 +1,1236 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Denise Landini – Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denise Landini – Portfolio</title>
 
-<style>
-:root {
-  --bg: #f8f7f4;
-  --text: #1a1a1a;
-  --text-light: #6b6b6b;
-  --accent: #ff6b6b;
-  --surface: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --border: rgba(0, 0, 0, 0.07);
-  --dp1: 0 2px 8px rgba(0,0,0,0.08);
-  --dp4: 0 8px 24px rgba(0,0,0,0.10);
-}
+    <style>
+      :root {
+        --bg: #f8f7f4;
+        --text: #1a1a1a;
+        --text-light: #6b6b6b;
+        --accent: #ff6b6b;
+        --surface: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.8);
+        --border: rgba(0, 0, 0, 0.07);
+        --dp1: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --dp4: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
+      body {
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
 
-/* CANVAS */
-#bg-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-}
+      /* CANVAS */
+      #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
 
-/* NAVIGATION */
-nav {
-  position: fixed;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 12px 32px;
-  border-radius: 999px;
-  display: flex;
-  gap: 24px;
-  z-index: 1000;
-  box-shadow: var(--dp1);
-  border: 1px solid var(--border);
-}
+      /* NAVIGATION */
+      nav {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 12px 32px;
+        border-radius: 999px;
+        display: flex;
+        gap: 24px;
+        z-index: 1000;
+        box-shadow: var(--dp1);
+        border: 1px solid var(--border);
+      }
 
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
 
-nav a:hover { color: var(--accent); }
+      nav a:hover {
+        color: var(--accent);
+      }
 
-/* LAYOUT */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
-}
+      /* LAYOUT */
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
 
-.section { padding: 100px 0 60px; }
+      .section {
+        padding: 100px 0 60px;
+      }
 
-/* TYPOGRAPHY */
-h2 {
-  font-size: 2.4rem;
-  margin-bottom: 48px;
-  font-weight: 700;
-  position: relative;
-}
+      /* TYPOGRAPHY */
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 48px;
+        font-weight: 700;
+        position: relative;
+      }
 
-h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 4px;
-  background: var(--accent);
-  margin-top: 10px;
-  border-radius: 2px;
-}
+      h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 4px;
+        background: var(--accent);
+        margin-top: 10px;
+        border-radius: 2px;
+      }
 
-h3 { font-size: 1.5rem; margin-bottom: 8px; color: var(--text); }
-p { color: var(--text-light); font-size: 1.05rem; }
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+      p {
+        color: var(--text-light);
+        font-size: 1.05rem;
+      }
 
-/* HERO */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 0;
-}
+      /* HERO */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 0;
+      }
 
-.hero-inner {
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 100%;
-}
+      .hero-inner {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+      }
 
-.hero-photo {
-  width: 340px;
-  height: 480px;
-  margin-left: 100px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--dp4);
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-}
+      .hero-photo {
+        width: 340px;
+        height: 480px;
+        margin-left: 100px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--dp4);
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+      }
 
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(15%) contrast(1.05);
-}
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(15%) contrast(1.05);
+      }
 
-.hero-text {
-  position: absolute;
-  left: 360px;
-  z-index: 2;
-}
+      .hero-text {
+        position: absolute;
+        left: 360px;
+        z-index: 2;
+      }
 
-.hero-text h1 {
-  font-size: 7rem;
-  line-height: 0.9;
-  font-weight: 800;
-  letter-spacing: -3px;
-  color: var(--text);
-  mix-blend-mode: multiply;
-}
-.hero-text h1 span{
-  font-size: 7rem;
-  line-height: 0.9;
-  font-weight: 800;
-  letter-spacing: -3px;
-  color: var(--text);
-  mix-blend-mode: multiply;
-  margin-left: 100px;
-}
+      .hero-text h1 {
+        font-size: 7rem;
+        line-height: 0.9;
+        font-weight: 800;
+        letter-spacing: -3px;
+        color: var(--text);
+        mix-blend-mode: multiply;
+      }
+      .hero-text h1 span {
+        font-size: 7rem;
+        line-height: 0.9;
+        font-weight: 800;
+        letter-spacing: -3px;
+        color: var(--text);
+        mix-blend-mode: multiply;
+        margin-left: 100px;
+      }
 
-.hero-sub {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 18px;
-  mix-blend-mode: normal;
-}
+      .hero-sub {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 18px;
+        mix-blend-mode: normal;
+      }
 
-.hero-sub p {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  line-height: 1.6;
-  max-width: 400px;
-  text-align: right;
-  margin-bottom: 22px;
-}
+      .hero-sub p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.6;
+        max-width: 400px;
+        text-align: right;
+        margin-bottom: 22px;
+      }
 
-.hero-ctas { display: flex; gap: 12px; }
+      .hero-ctas {
+        display: flex;
+        gap: 12px;
+      }
 
-/* CARDS */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 32px;
-  border-radius: 24px;
-  margin-bottom: 28px;
-  box-shadow: var(--dp1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+      /* CARDS */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 32px;
+        border-radius: 24px;
+        margin-bottom: 28px;
+        box-shadow: var(--dp1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--dp4);
-}
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--dp4);
+      }
 
-.timeline-text {
-  border-left: 3px solid var(--accent);
-  padding-left: 20px;
-  margin-top: 14px;
-  margin-bottom: 8px;
-}
+      .timeline-text {
+        border-left: 3px solid var(--accent);
+        padding-left: 20px;
+        margin-top: 14px;
+        margin-bottom: 8px;
+      }
 
-/* PROCESS */
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 18px;
-  margin-top: 28px;
-}
+      /* PROCESS */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+        margin-top: 28px;
+      }
 
-.process-step {
-  text-align: center;
-  padding: 24px 18px;
-  background: var(--surface);
-  border-radius: 20px;
-  box-shadow: var(--dp1);
-}
-.process-step svg { color: var(--accent) }
-.process-step h4 { color: var(--accent) }
-.process-step i { color: var(--accent); margin-bottom: 15px; }
+      .process-step {
+        text-align: center;
+        padding: 24px 18px;
+        background: var(--surface);
+        border-radius: 20px;
+        box-shadow: var(--dp1);
+      }
+      .process-step svg {
+        color: var(--accent);
+      }
+      .process-step h4 {
+        color: var(--accent);
+      }
+      .process-step i {
+        color: var(--accent);
+        margin-bottom: 15px;
+      }
 
-.process-step h4 {
-  font-size: .9rem;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  margin-bottom: 8px;
-}
+      .process-step h4 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
 
-.process-step p { font-size: .78rem; }
+      .process-step p {
+        font-size: 0.78rem;
+      }
 
-/* BUTTONS */
-.btn {
-  display: inline-block;
-  padding: 12px 26px;
-  border-radius: 999px;
-  background: var(--text);
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s;
-  border: none;
-  cursor: pointer;
-}
+      /* EXPERIENCE & EDUCATION */
+      .period {
+        display: inline-block;
+        font-size: 16px;
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
 
-.btn:hover {
-  background: var(--accent);
-  box-shadow: 0 8px 20px rgba(232, 165, 165, 0.35);
-}
+      .divider {
+        width: 100%;
+        height: 0.5px;
+        background: var(--border);
+        margin: 0.5rem 0 1rem;
+      }
 
-.btn-ghost {
-  background: transparent;
-  color: var(--text);
-  border: 1.5px solid var(--text);
-}
+      .bullets {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
 
-.btn-ghost:hover {
-  background: rgba(0,0,0,0.05);
-  color: var(--text);
-  box-shadow: none;
-}
+      .bullets li {
+        font-size: 1rem;
+        color: var(--text-light);
+        line-height: 1.65;
+        padding: 0.18rem 0 0.18rem 14px;
+        position: relative;
+      }
 
-.btn-sm {
-  margin-top: 18px;
-  margin-right: 8px;
-}
+      .bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 15px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+        opacity: 0.55;
+      }
 
-/* SKILLS */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
-}
+      .thesis {
+        font-size: 13px;
+        color: var(--text-light);
+        margin-top: 10px;
+        padding-left: 14px;
+        border-left: 2px solid rgba(255, 107, 107, 0.35);
+      }
 
-.skill-card {
-  background: var(--surface);
-  padding: 28px;
-  border-radius: 24px;
-  box-shadow: var(--dp1);
-}
+      .thesis em {
+        color: var(--text);
+        font-style: normal;
+        font-weight: 600;
+      }
 
-.skill-card h4 {
-  font-size: 1rem;
-  margin-bottom: 14px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: .5px;
-}
+      .grade {
+        margin-top: 8px;
+        font-size: 13px;
+        color: var(--text-light);
+      }
 
-.skill-card ul { list-style: none; }
-.skill-card li { margin-bottom: 5px; font-size: .93rem; color: var(--text-light); }
+      .grade strong {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .tl-wrap {
+        position: relative;
+        padding-left: 40px;
+      }
 
-/* FLOATING FOOTER */
-.floating-footer {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 12px 32px;
-  border-radius: 999px;
-  display: flex;
-  gap: 28px;
-  z-index: 1000;
-  box-shadow: var(--dp1);
-  border: 1px solid var(--border);
-}
+      .tl-wrap::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        bottom: 8px;
+        width: 1.5px;
+        background: rgba(255, 107, 107, 0.25);
+      }
 
-.floating-footer a {
-  text-decoration: none;
-  color: var(--text);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  transition: color 0.3s;
-}
+      .tl-entry {
+        position: relative;
+        margin-bottom: 28px;
+      }
 
-.floating-footer a:hover { color: var(--accent); }
+      .dot {
+        position: absolute;
+        left: -39px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 3px solid var(--bg);
+        box-shadow: 0 0 0 1.5px var(--accent);
+      }
 
-/* SCROLL REVEAL */
-.section-content {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
-}
+      /* BUTTONS */
+      .btn {
+        display: inline-block;
+        padding: 12px 26px;
+        border-radius: 999px;
+        background: var(--text);
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
 
-.section-content.visible {
-  opacity: 1;
-  transform: none;
-}
+      .btn:hover {
+        background: var(--accent);
+        box-shadow: 0 8px 20px rgba(232, 165, 165, 0.35);
+      }
 
-/* RESPONSIVE */
-@media(max-width: 768px) {
+      .btn-ghost {
+        background: transparent;
+        color: var(--text);
+        border: 1.5px solid var(--text);
+      }
 
-  #hero{
-	margin-top: 140px;
-  }
+      .btn-ghost:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--text);
+        box-shadow: none;
+      }
 
-  .hero-text {
-    position: relative;
-    left: 0;
-    mix-blend-mode: normal;
-    margin-top: 24px;
-  }
+      .btn-sm {
+        margin-top: 18px;
+        margin-right: 8px;
+      }
 
-  .hero-inner {
-    flex-direction: column;
-    text-align: center;
-  }
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 22px;
+      }
 
-  .hero-text h1 { font-size: 3.8rem; }
-  .hero-text h1 span {
-	font-size: 3.8rem;
-	margin-left: 0px;
-  }
+      .skill-card {
+        background: var(--surface);
+        padding: 28px;
+        border-radius: 24px;
+        box-shadow: var(--dp1);
+      }
 
-  .hero-sub {
-    align-items: center;
-  }
+      .skill-card h4 {
+        font-size: 1rem;
+        margin-bottom: 14px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
 
-  .hero-sub p { text-align: center; }
+      .skill-card ul {
+        list-style: none;
+      }
+      .skill-card li {
+        margin-bottom: 5px;
+        font-size: 0.93rem;
+        color: var(--text-light);
+      }
 
-  nav, .floating-footer {
-    width: 90%;
-    gap: 12px;
-    padding: 12px 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+      /* FLOATING FOOTER */
+      .floating-footer {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 12px 32px;
+        border-radius: 999px;
+        display: flex;
+        gap: 28px;
+        z-index: 1000;
+        box-shadow: var(--dp1);
+        border: 1px solid var(--border);
+      }
 
-  .hero-photo {
-    width: 280px;
-    height: 380px;
-	margin-left: 0px;
-  }
-}
-</style>
-<script src="https://unpkg.com/lucide@latest"></script>
-</head>
+      .floating-footer a {
+        text-decoration: none;
+        color: var(--text);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
 
-<body>
-<canvas id="bg-canvas"></canvas>
+      .floating-footer a:hover {
+        color: var(--accent);
+      }
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#process">Process</a>
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-</nav>
+      /* SCROLL REVEAL */
+      .section-content {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-<div class="container">
+      .section-content.visible {
+        opacity: 1;
+        transform: none;
+      }
 
-  <!-- ── HERO ─────────────────────────────────────── -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-photo">
-        <img src="deniseLandini.jpg" alt="Denise Landini">
-      </div>
-      <div class="hero-text">
-        <h1>DENISE<br><span>LANDINI</span></h1>
-        <div class="hero-sub">
-          <p style="font-size: 1.5rem; color: var(--accent); font-weight: 500;">Interaction Designer & AI Engineer<br></p>
-		  <p><i>I design intuitive, human-centered experiences for complex systems, bridging AI, robotics, and real-world products.</i></p>
-          <div class="hero-ctas">
-            <a href="#projects" class="btn">View Projects</a>
-            <a href="#process" class="btn btn-ghost">How I Work</a>
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        #hero {
+          margin-top: 140px;
+        }
+
+        .hero-text {
+          position: relative;
+          left: 0;
+          mix-blend-mode: normal;
+          margin-top: 24px;
+        }
+
+        .hero-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 3.8rem;
+        }
+        .hero-text h1 span {
+          font-size: 3.8rem;
+          margin-left: 0px;
+        }
+
+        .hero-sub {
+          align-items: center;
+        }
+
+        .hero-sub p {
+          text-align: center;
+        }
+
+        nav,
+        .floating-footer {
+          width: 90%;
+          gap: 12px;
+          padding: 12px 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero-photo {
+          width: 280px;
+          height: 380px;
+          margin-left: 0px;
+        }
+      }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+    </nav>
+
+    <div class="container">
+      <!-- ── HERO ─────────────────────────────────────── -->
+      <section id="hero">
+        <div class="hero-inner">
+          <div class="hero-photo">
+            <img src="deniseLandini.jpg" alt="Denise Landini" />
+          </div>
+          <div class="hero-text">
+            <h1>DENISE<br /><span>LANDINI</span></h1>
+            <div class="hero-sub">
+              <p
+                style="
+                  font-size: 1.5rem;
+                  color: var(--accent);
+                  font-weight: 500;
+                "
+              >
+                Interaction Designer & AI Engineer<br />
+              </p>
+              <p>
+                <i
+                  >I design intuitive, human-centered experiences for complex
+                  systems, bridging AI, robotics, and real-world products.</i
+                >
+              </p>
+              <div class="hero-ctas">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="#process" class="btn btn-ghost">How I Work</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- ── ABOUT ─────────────────────────────────────── -->
+      <section id="about" class="section">
+        <h2>About</h2>
+        <div class="card section-content">
+          <p style="font-size: 1.2rem; line-height: 1.8">
+            I design intuitive, human-centered experiences for complex systems,
+            specializing in artificial intelligence, robotics, and human-machine
+            interaction. I transform advanced research into accessible,
+            real-world products.
+          </p>
+        </div>
+      </section>
+
+      <!-- ── PROCESS ─────────────────────────────────────── -->
+      <section id="process" class="section">
+        <h2>Design Process</h2>
+        <div class="process-grid section-content">
+          <div class="process-step">
+            <i data-lucide="search" size="32"></i>
+            <h4>Empathize</h4>
+            <p>User research & context analysis</p>
+          </div>
+          <div class="process-step">
+            <i data-lucide="target" size="32"></i>
+            <h4>Define</h4>
+            <p>Problem framing & Requirements</p>
+          </div>
+          <div class="process-step">
+            <i data-lucide="pen-tool" size="32"></i>
+            <h4>Ideate</h4>
+            <p>User flows & Wireframing</p>
+          </div>
+          <div class="process-step">
+            <i data-lucide="layers" size="32"></i>
+            <h4>Prototype</h4>
+            <p>Hi-fi interactive prototyping</p>
+          </div>
+          <div class="process-step">
+            <i data-lucide="check-circle" size="32"></i>
+            <h4>Test</h4>
+            <p>Usability testing & Iteration</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EXPERIENCE ─────────────────────────────────────── -->
+      <section id="experience" class="section">
+        <h2>Experience</h2>
+
+        <div class="tl-wrap">
+          <div class="tl-entry section-content">
+            <div class="dot"></div>
+            <span class="period">09.2025 – Present</span>
+            <div class="card">
+              <h3>Interaction Designer & Front-End Developer</h3>
+              <p style="color: var(--accent)">
+                <b><i>Triple-IN GmbH</i></b>
+              </p>
+              <div class="divider"></div>
+              <ul class="bullets">
+                <li>
+                  Led the end-to-end <b>design</b> and development of internal digital
+                  tools, transforming manual Excel-based workflows into a
+                  scalable, user-centered platform.
+                </li>
+                <li>
+                  Designed and implemented a <b>React</b> and <b>Swift</b> ecosystem
+                  integrated with Odoo ERP, improving data traceability,
+                  usability, and operational efficiency.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-entry section-content">
+            <div class="dot"></div>
+
+            <span class="period">07.2022 – 08.2025</span>
+            <div class="card">
+              <h3>Full Stack Software Engineer</h3>
+              <p style="color: var(--accent)">
+                <b><i>Teleconsys spa</i></b>
+              </p>
+              <div class="divider"></div>
+              <ul class="bullets">
+                <li>
+                  <b>Full-stack implementation</b> of DeskNow, an enterprise smart-office platform, where I developed the 
+                  custom Chatbot to automate real-time resource booking and user support. https://desknow.teleconsys.it
+                </li>
+                <li>
+                  <b>Lead Full-Stack Developer</b> for Nucleco, where I managed the entire software lifecycle for radiological
+                  waste management, overseeing stakeholder requirements, system architecture, and the end-to-end
+                  deploymentof mission-critical features to optimize data reliability and complex operational workflows.
+                </li>
+                <li>
+                  <b>Legacy Project Optimization</b>, focused on refactoring existing applications to significantly enhance
+                  UI/UX design, system performance, and overall graphic consistency, ensuring a modern and seamless
+                  experience for real-world users.
+                </li>
+                <li>
+                  Innovation Team specialist focused on architecting an <b>AI-driven RAG</b> (Retrieval-Augmented
+                  Generation)system for the legal sector, leveraging LLMs and Vector Databases to automate complex
+                  document analysis and litigation workflows.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EDUCATION ─────────────────────────────────────── -->
+      <section id="education" class="section">
+        <h2>Education</h2>
+
+        <div class="tl-wrap">
+          <div class="tl-entry section-content">
+            <div class="dot"></div>
+
+            <span class="period">2020 – 2022</span>
+            <div class="card">
+              <h3>Master's Degree in Artificial Intelligence and Robotics</h3>
+              <p style="color: var(--accent)">
+                <b><i>La Sapienza – University of Rome</i></b>
+              </p>
+              <div class="divider"></div>
+              <ul class="bullets">
+                <li>
+                  Specialization in AI and complex systems: machine learning,
+                  neural networks, reinforcement learning, computer vision and
+                  robotics.
+                </li>
+                <li>
+                  Expertise in designing intelligent and autonomous systems,
+                  including robot modeling, control and human-robot interaction.
+                </li>
+              </ul>
+              <p class="thesis">
+                Thesis:
+                <em
+                  >Quaternion Neural Network applied to Visual Odometry
+                  System</em
+                >
+              </p>
+              <p class="grade">
+                Final grade: <strong>110L/110</strong> with honors
+              </p>
+            </div>
+          </div>
+
+          <div class="tl-entry section-content">
+            <div class="dot"></div>
+            <span class="period">2017 – 2020</span>
+            <div class="card">
+              <h3>Bachelor's Degree in Computer Engineering</h3>
+              <p style="color: var(--accent)">
+                <b><i>University of Modena and Reggio Emilia</i></b>
+              </p>
+              <div class="divider"></div>
+              <ul class="bullets">
+                <li>
+                  Strong foundations in algorithms, data structures, networks
+                  and object-oriented programming.
+                </li>
+                <li>
+                  In partnership with Bosch and the Municipality of Mantova:
+                  engineered a monitoring system for IoT parking sensors with
+                  Java backend and Android app for real-time occupancy
+                  analytics.
+                </li>
+              </ul>
+              <p class="thesis">
+                Thesis:
+                <em>IoT applied to Mobility — Smart Parking with Bosch</em>
+              </p>
+              <p class="grade">Final grade: <strong>101/110</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PROJECTS ─────────────────────────────────────── -->
+      <section id="projects" class="section">
+        <h2>Selected Projects</h2>
+
+        <div class="card section-content">
+          <h3>UX Case Study · Engineering Firm Platform</h3>
+          <p style="color: var(--accent)">
+            <b><i> Interaction Designer & Full-Stack Engineer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Complex technical services lacked a clear digital
+            experience, creating friction for users trying to navigate
+            professional offerings.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Applied UCD methodology, focusing on information
+            hierarchy and mobile-first interactions to simplify complex domain
+            knowledge.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A responsive platform with intuitive navigation and
+            optimized performance across all devices.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Reduced user friction and improved engagement by
+            making professional services accessible on-the-go.
+          </p>
+          <a href="https://www.stalandinimaduzzi.it/" class="btn btn-sm"
+            >Visit Website</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>UX Case Study · Interactive RSVP Experience</h3>
+          <p style="color: var(--accent)">
+            <b><i>Interaction Designer & Frontend Developer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Traditional invitations often lack accessibility for
+            users with low digital literacy, leading to confusion and high
+            drop-off rates.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Prioritized clarity and visual affordances,
+            focusing on the mental models of elderly users to ensure a
+            frictionless flow.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A minimalist web app with a simplified RSVP system
+            and clear feedback loops.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Achieved high completion rates across all age groups
+            through an inclusive and delightful user journey.
+          </p>
+          <a
+            href="https://deniselandini.github.io/save_the_date/"
+            class="btn btn-sm"
+            >Explore Project</a
+          >
+          <a
+            href="https://github.com/deniselandini/save_the_date"
+            class="btn btn-sm btn-ghost"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Explainable AI · Agent Behavior Transparency</h3>
+          <p style="color: var(--accent)">
+            <b><i>AI Interaction Researcher & Engineer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Reinforcement Learning agents act as "black boxes,"
+            making it difficult for users to trust or understand autonomous
+            decisions.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Implemented a framework to translate complex
+            rewards into "intended outcomes," making agent logic human-readable.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A system that generates semantic explanations for
+            agent actions based on future predicted states.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Enhanced user trust by bridging the gap between
+            complex AI logic and intuitive human understanding.
+          </p>
+          <a
+            href="https://github.com/deniselandini/Reinforcement-Learning"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Medical UX · High-Precision Stroke Detection</h3>
+          <p style="color: var(--accent)">
+            <b><i>Deep Learning Engineer & UX Researcher</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> In medical diagnostics, AI inaccuracy can lead to
+            clinical distrust and diagnostic errors.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Utilized Quaternion Neural Networks to capture
+            complex MRI correlations, reducing false positives for better
+            clinical reliability.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> An X-Net implementation that provides stable and
+            precise lesion segmentation boundaries.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Provided a more reliable decision-support tool for
+            specialists, prioritizing accuracy and safety in critical
+            environments.
+          </p>
+          <a
+            href="https://github.com/deniselandini/Neural-Network"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Interactive Graphics · Physics-Based Prototyping</h3>
+          <p style="color: var(--accent)">
+            <b><i>Graphics Programmer & Interaction Designer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Creating "magical" and responsive digital
+            environments requires seamless integration of physics and user
+            proximity.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Developed a 3D scene in WebGL focused on real-time
+            spatial interactions and collision detection.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> An immersive world where entities react dynamically
+            to the character's presence through fluid animations and lighting.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Demonstrated the ability to build high-fidelity
+            prototypes that enhance user delight through responsive
+            environmental feedback.
+          </p>
+          <a
+            href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Digital Trust · Image Forgery Detection System</h3>
+          <p style="color: var(--accent)">
+            <b><i>Computer Vision Researcher</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Digital deception through image splicing undermines
+            user trust in online information and security.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Enhanced RRU-Net with a Feature Selection Module
+            (FSM) to adaptively highlight informative artifacts of tampering.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A robust detection model that identifies subtle
+            manipulation in authentic-looking images.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Contributed to a safer web ecosystem by providing
+            technical solutions for privacy and integrity verification.
+          </p>
+          <a
+            href="https://github.com/deniselandini/Vision-and-Perception"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Medical Robotics · Musculoskeletal Motion Analysis</h3>
+          <p style="color: var(--accent)">
+            <b><i>Biomechanical Modeler & Robotics Engineer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Assistive devices often fail because they don't
+            account for diverse biomechanical needs.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Developed a dual-scale musculoskeletal model to
+            evaluate joint interactions and motor dynamics.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A simulation framework that provides quantitative
+            data for personalized rehabilitation and robotic design.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Enabled more user-centric design for assistive
+            robotics, ensuring devices adapt to the user's specific physical
+            constraints.
+          </p>
+          <a
+            href="https://github.com/deniselandini/Medical-Robotics"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Robotics UX · Predictable Path Planning</h3>
+          <p style="color: var(--accent)">
+            <b><i>Robotics Software Engineer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Robots in human environments often move in
+            unpredictable ways, causing user anxiety or safety concerns.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Integrated A* algorithms with kinematic constraints
+            to ensure paths are smooth and human-readable.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A grid-based navigation system for differential
+            drive robots that prioritizes collision-free, fluid movement.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Improved the human-robot interaction experience by
+            making autonomous behavior more predictable and reliable.
+          </p>
+          <a
+            href="https://github.com/deniselandini/Autonomous-Mobile-Robotics"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+      </section>
+
+      <!-- ── SKILLS ─────────────────────────────────────── -->
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>Design</h4>
+            </div>
+            <ul>
+              <li>Interaction Design</li>
+              <li>User Flows & Wireframing</li>
+              <li>Prototyping (Figma)</li>
+              <li>Accessibility (WCAG)</li>
+              <li>Information Architecture</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>Web developing</h4>
+            </div>
+            <ul>
+              <li>HTML5</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>C# (.NET)</li>
+              <li>C</li>
+              <li>C++</li>
+              <li>React</li>
+              <li>PHP</li>
+              <li>WebGL</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>Database</h4>
+            </div>
+            <ul>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>MicrosoftSQLServer</li>
+              <li>PHP</li>
+              <li>Java</li>
+              <li>Eclipse</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>AI & ML</h4>
+            </div>
+            <ul>
+              <li>Python</li>
+              <li>Keras</li>
+              <li>PyTorch</li>
+              <li>OpenAIGym</li>
+              <li>Anaconda</li>
+              <li>GoogleColab</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>Robot Programming</h4>
+            </div>
+            <ul>
+              <li>Matlab</li>
+              <li>OpenSim</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-header">
+              <h4>Tools & Workflow</h4>
+            </div>
+            <ul>
+              <li>Figma</li>
+              <li>Git / GitHub</li>
+              <li>Agile / Scrum</li>
+              <li>User Testing</li>
+              <li>Prototyping & Iteration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <!-- ── ABOUT ─────────────────────────────────────── -->
-  <section id="about" class="section">
-    <h2>About</h2>
-    <div class="card section-content">
-      <p style="font-size: 1.2rem; line-height: 1.8;">
-        I design intuitive, human-centered experiences for complex systems, specializing in artificial intelligence, robotics, and human-machine interaction.
-        I transform advanced research into accessible, real-world products.
-      </p>
-    </div>
-  </section>
+    <!-- FLOATING FOOTER -->
+    <footer class="floating-footer">
+      <a href="mailto:deniselandini98@gmail.com">Email</a>
+      <a
+        href="https://www.linkedin.com/in/denise-landini-29073b152/?locale=en-US"
+        target="_blank"
+        >LinkedIn</a
+      >
+      <a href="https://github.com/deniselandini" target="_blank">GitHub</a>
+      <a href="denise_landini_cv.pdf" target="_blank">CV</a>
+    </footer>
 
-  <!-- ── PROCESS ─────────────────────────────────────── -->
-  <section id="process" class="section">
-    <h2>Design Process</h2>
-    <div class="process-grid section-content">
-      <div class="process-step">
-		<i data-lucide="search" size="32"></i>
-        <h4>Empathize</h4>
-        <p>User research & context analysis</p>
-      </div>
-      <div class="process-step">
-	    <i data-lucide="target" size="32"></i>
-        <h4>Define</h4>
-        <p>Problem framing & Requirements</p>
-      </div>
-      <div class="process-step">
-	    <i data-lucide="pen-tool" size="32"></i>
-        <h4>Ideate</h4>
-        <p>User flows & Wireframing</p>
-      </div>
-      <div class="process-step">
-	    <i data-lucide="layers" size="32"></i>
-        <h4>Prototype</h4>
-        <p>Hi-fi interactive prototyping</p>
-      </div>
-      <div class="process-step">
-		<i data-lucide="check-circle" size="32"></i>
-        <h4>Test</h4>
-        <p>Usability testing & Iteration</p>
-      </div>
-    </div>
-  </section>
+    <!-- ── CANVAS PARTICLES ─────────────────────────────────────── -->
+    <script>
+      const canvas = document.getElementById("bg-canvas");
+      const ctx = canvas.getContext("2d");
+      let W, H;
+      const particles = [];
+      const mouse = { x: -9999, y: -9999 };
 
-  <!-- ── EXPERIENCE ─────────────────────────────────────── -->
-  <section id="experience" class="section">
-    <h2>Experience</h2>
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
 
-    <div class="card section-content">
-      <h3>Interaction Designer & Front-End Developer</h3>
-      <p style="color: var(--accent);"><b><i>Triple-IN GmbH · 09.2025 – Present</i></b></p>
-      <p class="timeline-text">
-        Led the end-to-end design and development of internal digital tools, transforming manual Excel-based workflows into a scalable, user-centered platform.
-      </p>
-      <p class="timeline-text">
-        Designed and implemented a React and Swift ecosystem integrated with Odoo ERP, improving data traceability, usability, and operational efficiency.
-      </p>
-    </div>
-
-    <div class="card section-content">
-      <h3>Full Stack Software Engineer</h3>
-      <p style="color: var(--accent);"><b><i>Teleconsys spa · 07.2022 – 08.2025</i></b></p>
-      <p class="timeline-text">
-        Full-stack implementation of DeskNow,, an enterprise smart-office platform, where I developed the JavaScript frontend and C# (.NET) backend with MongoDB NoSQL infrastructure while integrating a custom Chatbot to automate real-time resource booking and user support.<br> https://desknow.teleconsys.it
-      </p>
-      <p class="timeline-text">
-        Lead Full-Stack Developer for Nucleco, where I managed the entire software lifecycle for radiological waste management, overseeingstakeholder requirements, system architecture, and the end-to-end deploymentof mission-critical features to optimize data reliability and complex operational workflows.
-      </p>
-      <p class="timeline-text">
-        Legacy Project Optimization, focused on refactoring existing applications to significantly enhance UI/UX design, system performance, and overall graphic consistency, ensuring a modern and seamless experience for real-world users.
-      </p>
-      <p class="timeline-text">
-        Innovation Team specialist focused on architecting an AI-driven RAG (Retrieval-Augmented Generation)system for the legal sector, leveraging LLMs and Vector Databases to automate complex document analysis and litigation workflows.
-      </p>
-    </div>
-  </section>
-
-  <!-- ── EDUCATION ─────────────────────────────────────── -->
-  <section id="education" class="section">
-    <h2>Education</h2>
-
-    <div class="card section-content">
-      <h3>Master's Degree in Artificial Intelligence and Robotics</h3>
-	  <p style="color: var(--accent);"><b><i>La Sapienza – University of Rome · 2020–2022</i></b></p>
-	<p class="timeline-text">
-	  <b>Program:</b> specialization in Artificial Intelligence and complex systems, with a strong focus on machine learning, neural networks, reinforcement learning, computer vision, and robotics. Developed expertise in designing intelligent and autonomous systems, including robot modeling, control, and human-robot interaction. <br />
-	</p>
-
-    <p class="timeline-text">
-      <b>Thesis:</b> Quaternion Neural Network applied to Visual Odometry System 
-    </p>
-
-    <p class="timeline-text">
-      <b>Final grade</b>: 110L/110 with honors program
-    </p>
-    </div>
-
-    <div class="card section-content">
-      <h3>Bachelor's Degree in Computer Engineering</h3>
-	  <p style="color: var(--accent);"><b><i>University of Modena and Reggio Emilia · 2017–2020</i></b></p>
-	  <p class="timeline-text">
-		  <b>Program:</b> strong foundations in algorithms, data structures, networks, and object-oriented programming.
-		  </p>
-		<p class="timeline-text">
-		  <b>Thesis:</b> IoT applied to Mobiliy: Smart Parking with Bosch 
-		  <br>In partnership with Bosch and the Municipality of Mantova, I engineered a monitoring system designed for
-		  data ingestion from IoT parking sensors. The solution features a Java-based backend for data processing and
-		  a dedicated Android mobile application, enabling end-users to access real-time occupancy analytics.
-		</p>
-
-		<p class="timeline-text">
-		  <b>Final grade</b>: 101/110
-		</p>
-
-    </div>
-  </section>
-
-  <!-- ── PROJECTS ─────────────────────────────────────── -->
-  <section id="projects" class="section">
-    <h2>Selected Projects</h2>
-
-    <div class="card section-content">
-      <h3>UX Case Study · Engineering Firm Platform</h3>
-      <p style="color: var(--accent);"><b><i> Interaction Designer & Full-Stack Engineer</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Complex technical services lacked a clear digital experience, creating friction for users trying to navigate professional offerings.</p>
-      <p class="timeline-text"><b>Approach:</b> Applied UCD methodology, focusing on information hierarchy and mobile-first interactions to simplify complex domain knowledge.</p>
-      <p class="timeline-text"><b>Solution:</b> A responsive platform with intuitive navigation and optimized performance across all devices.</p>
-      <p class="timeline-text"><b>Impact:</b> Reduced user friction and improved engagement by making professional services accessible on-the-go.</p>
-      <a href="https://www.stalandinimaduzzi.it/" class="btn btn-sm">Visit Website</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>UX Case Study · Interactive RSVP Experience</h3>
-      <p style="color: var(--accent);"><b><i>Interaction Designer & Frontend Developer</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Traditional invitations often lack accessibility for users with low digital literacy, leading to confusion and high drop-off rates.</p>
-      <p class="timeline-text"><b>Approach:</b> Prioritized clarity and visual affordances, focusing on the mental models of elderly users to ensure a frictionless flow.</p>
-      <p class="timeline-text"><b>Solution:</b> A minimalist web app with a simplified RSVP system and clear feedback loops.</p>
-      <p class="timeline-text"><b>Impact:</b> Achieved high completion rates across all age groups through an inclusive and delightful user journey.</p>
-      <a href="https://deniselandini.github.io/save_the_date/" class="btn btn-sm">Explore Project</a>
-      <a href="https://github.com/deniselandini/save_the_date" class="btn btn-sm btn-ghost">View on GitHub</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>Explainable AI · Agent Behavior Transparency</h3>
-	  <p style="color: var(--accent);"><b><i>AI Interaction Researcher & Engineer</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Reinforcement Learning agents act as "black boxes," making it difficult for users to trust or understand autonomous decisions.</p>
-      <p class="timeline-text"><b>Approach:</b> Implemented a framework to translate complex rewards into "intended outcomes," making agent logic human-readable.</p>
-      <p class="timeline-text"><b>Solution:</b> A system that generates semantic explanations for agent actions based on future predicted states.</p>
-      <p class="timeline-text"><b>Impact:</b> Enhanced user trust by bridging the gap between complex AI logic and intuitive human understanding.</p>
-      <a href="https://github.com/deniselandini/Reinforcement-Learning" class="btn btn-sm">View on GitHub</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>Medical UX · High-Precision Stroke Detection</h3>
-	  <p style="color: var(--accent);"><b><i>Deep Learning Engineer & UX Researcher</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> In medical diagnostics, AI inaccuracy can lead to clinical distrust and diagnostic errors.</p>
-      <p class="timeline-text"><b>Approach:</b> Utilized Quaternion Neural Networks to capture complex MRI correlations, reducing false positives for better clinical reliability.</p>
-      <p class="timeline-text"><b>Solution:</b> An X-Net implementation that provides stable and precise lesion segmentation boundaries.</p>
-      <p class="timeline-text"><b>Impact:</b> Provided a more reliable decision-support tool for specialists, prioritizing accuracy and safety in critical environments.</p>
-      <a href="https://github.com/deniselandini/Neural-Network" class="btn btn-sm">View on GitHub</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>Interactive Graphics · Physics-Based Prototyping</h3>
-	  <p style="color: var(--accent);"><b><i>Graphics Programmer & Interaction Designer</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Creating "magical" and responsive digital environments requires seamless integration of physics and user proximity.</p>
-      <p class="timeline-text"><b>Approach:</b> Developed a 3D scene in WebGL focused on real-time spatial interactions and collision detection.</p>
-      <p class="timeline-text"><b>Solution:</b> An immersive world where entities react dynamically to the character's presence through fluid animations and lighting.</p>
-      <p class="timeline-text"><b>Impact:</b> Demonstrated the ability to build high-fidelity prototypes that enhance user delight through responsive environmental feedback.</p>
-      <a href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project" class="btn btn-sm">View on GitHub</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>Digital Trust · Image Forgery Detection System</h3>
-	  <p style="color: var(--accent);"><b><i>Computer Vision Researcher</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Digital deception through image splicing undermines user trust in online information and security.</p>
-      <p class="timeline-text"><b>Approach:</b> Enhanced RRU-Net with a Feature Selection Module (FSM) to adaptively highlight informative artifacts of tampering.</p>
-      <p class="timeline-text"><b>Solution:</b> A robust detection model that identifies subtle manipulation in authentic-looking images.</p>
-      <p class="timeline-text"><b>Impact:</b> Contributed to a safer web ecosystem by providing technical solutions for privacy and integrity verification.</p>
-      <a href="https://github.com/deniselandini/Vision-and-Perception" class="btn btn-sm">View on GitHub</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>Medical Robotics · Musculoskeletal Motion Analysis</h3>
-	  <p style="color: var(--accent);"><b><i>Biomechanical Modeler & Robotics Engineer</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Assistive devices often fail because they don't account for diverse biomechanical needs.</p>
-      <p class="timeline-text"><b>Approach:</b> Developed a dual-scale musculoskeletal model to evaluate joint interactions and motor dynamics.</p>
-      <p class="timeline-text"><b>Solution:</b> A simulation framework that provides quantitative data for personalized rehabilitation and robotic design.</p>
-      <p class="timeline-text"><b>Impact:</b> Enabled more user-centric design for assistive robotics, ensuring devices adapt to the user's specific physical constraints.</p>
-      <a href="https://github.com/deniselandini/Medical-Robotics" class="btn btn-sm">View on GitHub</a>
-    </div>
-
-    <div class="card section-content">
-      <h3>Robotics UX · Predictable Path Planning</h3>
-	  <p style="color: var(--accent);"><b><i>Robotics Software Engineer</i></b></p>
-      <p class="timeline-text"><b>Problem:</b> Robots in human environments often move in unpredictable ways, causing user anxiety or safety concerns.</p>
-      <p class="timeline-text"><b>Approach:</b> Integrated A* algorithms with kinematic constraints to ensure paths are smooth and human-readable.</p>
-      <p class="timeline-text"><b>Solution:</b> A grid-based navigation system for differential drive robots that prioritizes collision-free, fluid movement.</p>
-      <p class="timeline-text"><b>Impact:</b> Improved the human-robot interaction experience by making autonomous behavior more predictable and reliable.</p>
-      <a href="https://github.com/deniselandini/Autonomous-Mobile-Robotics" class="btn btn-sm">View on GitHub</a>
-    </div>
-  </section>
-
-  <!-- ── SKILLS ─────────────────────────────────────── -->
-<section id="skills" class="section">
-  <h2>Skills</h2>
-
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <div class="skill-header">
-        <h4>Design</h4>
-      </div>
-      <ul>
-        <li>Interaction Design</li>
-        <li>User Flows & Wireframing</li>
-        <li>Prototyping (Figma)</li>
-        <li>Accessibility (WCAG)</li>
-        <li>Information Architecture</li>
-      </ul>
-    </div>
-
-	<div class="skill-card">
-      <div class="skill-header">
-        <h4>Web developing</h4>
-      </div>
-      <ul>
-        <li>HTML5</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-		<li>C# (.NET)</li>
-		<li>C</li>
-		<li>C++</li>
-        <li>React</li>
-        <li>PHP</li>
-		<li>WebGL</li>
-      </ul>
-    </div>
-
-	<div class="skill-card">
-      <div class="skill-header">
-        <h4>Database</h4>
-      </div>
-      <ul>
-        <li>MySQL</li>
-        <li>PostgreSQL</li>
-        <li>MongoDB</li>
-		<li>MicrosoftSQLServer</li>
-        <li>PHP</li>
-        <li>Java</li>
-		<li>Eclipse</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-header">
-        <h4>AI & ML</h4>
-      </div>
-      <ul>
-        <li>Python</li>
-        <li>Keras</li>
-        <li>PyTorch</li>
-        <li>OpenAIGym</li>
-		<li>Anaconda</li>
-		<li>GoogleColab</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-header">
-        <h4>Robot Programming</h4>
-      </div>
-      <ul>
-        <li>Matlab</li>
-        <li>OpenSim</li>
-      </ul>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-header">
-        <h4>Tools & Workflow</h4>
-      </div>
-      <ul>
-        <li>Figma</li>
-        <li>Git / GitHub</li>
-        <li>Agile / Scrum</li>
-        <li>User Testing</li>
-        <li>Prototyping & Iteration</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-</div>
-
-<!-- FLOATING FOOTER -->
-<footer class="floating-footer">
-  <a href="mailto:deniselandini98@gmail.com">Email</a>
-  <a href="https://www.linkedin.com/in/denise-landini-29073b152/?locale=en-US" target="_blank">LinkedIn</a>
-  <a href="https://github.com/deniselandini" target="_blank">GitHub</a>
-  <a href="denise_landini_cv.pdf" target="_blank">CV</a>
-</footer>
-
-<!-- ── CANVAS PARTICLES ─────────────────────────────────────── -->
-<script>
-const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
-let W, H;
-const particles = [];
-const mouse = { x: -9999, y: -9999 };
-
-window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
-
-function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-class Particle {
-  constructor() { this.reset(); }
-
-  reset() {
-    this.x = Math.pow(Math.random(), 1.5) * W;
-    this.y = Math.pow(Math.random(), 1.5) * H * 1.4;
-    if (this.x > W * 0.75 && this.y > H * 0.75) { this.reset(); return; }
-    this.size = Math.random() * 14 + 7;
-    const shapes = ['plus', 'asterisk', 'circle', 'dot'];
-    this.shape = shapes[Math.floor(Math.random() * shapes.length)];
-    this.angle = Math.random() * Math.PI * 2;
-    this.rotSpeed = (Math.random() - 0.5) * 0.018;
-    this.vx = (Math.random() - 0.5) * 0.28;
-    this.vy = (Math.random() - 0.5) * 0.28;
-    this.scale = 1;
-    this.scaleDir = Math.random() > 0.5 ? 0.004 : -0.004;
-  }
-
-  update() {
-    this.x += this.vx;
-    this.y += this.vy;
-    this.angle += this.rotSpeed;
-    this.scale += this.scaleDir;
-    if (this.scale > 1.2 || this.scale < 0.8) this.scaleDir *= -1;
-
-    const dx = mouse.x - this.x;
-    const dy = mouse.y - this.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    const radius = 140;
-    if (dist < radius) {
-      const force = (radius - dist) / radius;
-      const angle = Math.atan2(dy, dx);
-      this.x -= Math.cos(angle) * force * 3;
-      this.y -= Math.sin(angle) * force * 3;
-    }
-
-    if (this.x < -60 || this.y < -60 || this.x > W + 60 || this.y > H + 60) this.reset();
-  }
-
-  draw() {
-    ctx.save();
-    ctx.translate(this.x, this.y);
-    ctx.rotate(this.angle);
-    ctx.scale(this.scale, this.scale);
-    ctx.strokeStyle = '#e8a5a5';
-    ctx.fillStyle = '#e8a5a5';
-    ctx.lineWidth = 1.8;
-    ctx.globalAlpha = 0.45;
-    ctx.beginPath();
-
-    if (this.shape === 'plus') {
-      ctx.moveTo(-this.size / 2, 0); ctx.lineTo(this.size / 2, 0);
-      ctx.moveTo(0, -this.size / 2); ctx.lineTo(0, this.size / 2);
-      ctx.stroke();
-    } else if (this.shape === 'asterisk') {
-      for (let i = 0; i < 3; i++) {
-        ctx.rotate(Math.PI / 3);
-        ctx.moveTo(-this.size / 2, 0); ctx.lineTo(this.size / 2, 0);
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
       }
-      ctx.stroke();
-    } else if (this.shape === 'circle') {
-      ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
-      ctx.stroke();
-    } else {
-      ctx.arc(0, 0, this.size / 4, 0, Math.PI * 2);
-      ctx.fill();
-    }
+      window.addEventListener("resize", resize);
+      resize();
 
-    ctx.restore();
-  }
-}
+      class Particle {
+        constructor() {
+          this.reset();
+        }
 
-for (let i = 0; i < 45; i++) particles.push(new Particle());
+        reset() {
+          this.x = Math.pow(Math.random(), 1.5) * W;
+          this.y = Math.pow(Math.random(), 1.5) * H * 1.4;
+          if (this.x > W * 0.75 && this.y > H * 0.75) {
+            this.reset();
+            return;
+          }
+          this.size = Math.random() * 14 + 7;
+          const shapes = ["plus", "asterisk", "circle", "dot"];
+          this.shape = shapes[Math.floor(Math.random() * shapes.length)];
+          this.angle = Math.random() * Math.PI * 2;
+          this.rotSpeed = (Math.random() - 0.5) * 0.018;
+          this.vx = (Math.random() - 0.5) * 0.28;
+          this.vy = (Math.random() - 0.5) * 0.28;
+          this.scale = 1;
+          this.scaleDir = Math.random() > 0.5 ? 0.004 : -0.004;
+        }
 
-function animate() {
-  ctx.clearRect(0, 0, W, H);
-  particles.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animate);
-}
-animate();
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.angle += this.rotSpeed;
+          this.scale += this.scaleDir;
+          if (this.scale > 1.2 || this.scale < 0.8) this.scaleDir *= -1;
 
-// ── SCROLL REVEAL ──
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const radius = 140;
+          if (dist < radius) {
+            const force = (radius - dist) / radius;
+            const angle = Math.atan2(dy, dx);
+            this.x -= Math.cos(angle) * force * 3;
+            this.y -= Math.sin(angle) * force * 3;
+          }
 
-document.querySelectorAll('.section-content').forEach(el => observer.observe(el));
-</script>
-<script>
-  lucide.createIcons();
-</script>
+          if (
+            this.x < -60 ||
+            this.y < -60 ||
+            this.x > W + 60 ||
+            this.y > H + 60
+          )
+            this.reset();
+        }
 
-</body>
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.angle);
+          ctx.scale(this.scale, this.scale);
+          ctx.strokeStyle = "#e8a5a5";
+          ctx.fillStyle = "#e8a5a5";
+          ctx.lineWidth = 1.8;
+          ctx.globalAlpha = 0.45;
+          ctx.beginPath();
+
+          if (this.shape === "plus") {
+            ctx.moveTo(-this.size / 2, 0);
+            ctx.lineTo(this.size / 2, 0);
+            ctx.moveTo(0, -this.size / 2);
+            ctx.lineTo(0, this.size / 2);
+            ctx.stroke();
+          } else if (this.shape === "asterisk") {
+            for (let i = 0; i < 3; i++) {
+              ctx.rotate(Math.PI / 3);
+              ctx.moveTo(-this.size / 2, 0);
+              ctx.lineTo(this.size / 2, 0);
+            }
+            ctx.stroke();
+          } else if (this.shape === "circle") {
+            ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+            ctx.stroke();
+          } else {
+            ctx.arc(0, 0, this.size / 4, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.restore();
+        }
+      }
+
+      for (let i = 0; i < 45; i++) particles.push(new Particle());
+
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      // ── SCROLL REVEAL ──
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document
+        .querySelectorAll(".section-content")
+        .forEach((el) => observer.observe(el));
+    </script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
