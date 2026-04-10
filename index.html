@@ -360,6 +360,31 @@
         box-shadow: 0 0 0 1.5px var(--accent);
       }
 
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+
+      .media-grid img,
+      .media-grid iframe,
+      .media-grid video {
+        width: 100%;
+        height: 100%;
+        /*min-height: 250px;*/
+        grid-column: span 1;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .media-grid img:hover {
+        transform: scale(1.02);
+      }
+
       /* BUTTONS */
       .btn {
         display: inline-block;
@@ -522,6 +547,10 @@
           height: 380px;
           margin-left: 0px;
         }
+
+        .media-grid {
+          grid-template-columns: repeat(1, minmax(300px, 1fr));
+        }
       }
     </style>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -634,14 +663,14 @@
               <div class="divider"></div>
               <ul class="bullets">
                 <li>
-                  Led the end-to-end <b>design</b> and development of internal digital
-                  tools, transforming manual Excel-based workflows into a
-                  scalable, user-centered platform.
+                  Led the end-to-end <b>design</b> and development of internal
+                  digital tools, transforming manual Excel-based workflows into
+                  a scalable, user-centered platform.
                 </li>
                 <li>
-                  Designed and implemented a <b>React</b> and <b>Swift</b> ecosystem
-                  integrated with Odoo ERP, improving data traceability,
-                  usability, and operational efficiency.
+                  Designed and implemented a <b>React</b> and
+                  <b>Swift</b> ecosystem integrated with Odoo ERP, improving
+                  data traceability, usability, and operational efficiency.
                 </li>
               </ul>
             </div>
@@ -659,23 +688,30 @@
               <div class="divider"></div>
               <ul class="bullets">
                 <li>
-                  <b>Full-stack implementation</b> of DeskNow, an enterprise smart-office platform, where I developed the 
-                  custom Chatbot to automate real-time resource booking and user support. https://desknow.teleconsys.it
+                  <b>Full-stack implementation</b> of DeskNow, an enterprise
+                  smart-office platform, where I developed the custom Chatbot to
+                  automate real-time resource booking and user support.
+                  https://desknow.teleconsys.it
                 </li>
                 <li>
-                  <b>Lead Full-Stack Developer</b> for Nucleco, where I managed the entire software lifecycle for radiological
-                  waste management, overseeing stakeholder requirements, system architecture, and the end-to-end
-                  deploymentof mission-critical features to optimize data reliability and complex operational workflows.
+                  <b>Lead Full-Stack Developer</b> for Nucleco, where I managed
+                  the entire software lifecycle for radiological waste
+                  management, overseeing stakeholder requirements, system
+                  architecture, and the end-to-end deploymentof mission-critical
+                  features to optimize data reliability and complex operational
+                  workflows.
                 </li>
                 <li>
-                  <b>Legacy Project Optimization</b>, focused on refactoring existing applications to significantly enhance
-                  UI/UX design, system performance, and overall graphic consistency, ensuring a modern and seamless
-                  experience for real-world users.
+                  <b>Legacy Project Optimization</b>, focused on refactoring
+                  existing applications to significantly enhance UI/UX design,
+                  system performance, and overall graphic consistency, ensuring
+                  a modern and seamless experience for real-world users.
                 </li>
                 <li>
-                  Innovation Team specialist focused on architecting an <b>AI-driven RAG</b> (Retrieval-Augmented
-                  Generation)system for the legal sector, leveraging LLMs and Vector Databases to automate complex
-                  document analysis and litigation workflows.
+                  Innovation Team specialist focused on architecting an
+                  <b>AI-driven RAG</b> (Retrieval-Augmented Generation)system
+                  for the legal sector, leveraging LLMs and Vector Databases to
+                  automate complex document analysis and litigation workflows.
                 </li>
               </ul>
             </div>
@@ -791,9 +827,9 @@
             <b><i>Interaction Designer & Frontend Developer</i></b>
           </p>
           <p class="timeline-text">
-            <b>Problem:</b> Traditional invitations often lack accessibility for
-            users with low digital literacy, leading to confusion and high
-            drop-off rates.
+            <b>Problem:</b> Traditional invitations lack accessibility for users
+            with low digital literacy, leading to confusion and high drop-off
+            rates.
           </p>
           <p class="timeline-text">
             <b>Approach:</b> Prioritized clarity and visual affordances,
@@ -821,32 +857,37 @@
         </div>
 
         <div class="card section-content">
-          <h3>Explainable AI · Agent Behavior Transparency</h3>
+          <h3>Interactive Graphics · Physics-Based Prototyping</h3>
           <p style="color: var(--accent)">
-            <b><i>AI Interaction Researcher & Engineer</i></b>
+            <b><i>Graphics Programmer & Interaction Designer</i></b>
           </p>
           <p class="timeline-text">
-            <b>Problem:</b> Reinforcement Learning agents act as "black boxes,"
-            making it difficult for users to trust or understand autonomous
-            decisions.
+            <b>Problem:</b> Creating responsive digital environments requires
+            seamless integration of physics and user proximity.
           </p>
           <p class="timeline-text">
-            <b>Approach:</b> Implemented a framework to translate complex
-            rewards into "intended outcomes," making agent logic human-readable.
+            <b>Approach:</b> Developed a 3D scene in WebGL focused on real-time
+            spatial interactions and collision detection.
           </p>
           <p class="timeline-text">
-            <b>Solution:</b> A system that generates semantic explanations for
-            agent actions based on future predicted states.
+            <b>Solution:</b> An immersive world where entities react dynamically
+            to the character's presence through fluid animations and lighting.
           </p>
           <p class="timeline-text">
-            <b>Impact:</b> Enhanced user trust by bridging the gap between
-            complex AI logic and intuitive human understanding.
+            <b>Impact:</b> Demonstrated the ability to build high-fidelity
+            prototypes that enhance user delight through responsive
+            environmental feedback.
           </p>
           <a
-            href="https://github.com/deniselandini/Reinforcement-Learning"
+            href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project"
             class="btn btn-sm"
             >View on GitHub</a
           >
+          <a
+            href="https://sapienzainteractivegraphicscourse.github.io/final-project-la_dl-team/"
+            class="btn btn-sm btn-ghost"
+            >Play the Game
+          </a>
         </div>
 
         <div class="card section-content">
@@ -872,38 +913,14 @@
             specialists, prioritizing accuracy and safety in critical
             environments.
           </p>
+          <div class="media-grid">
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Neural-Network/main/READMEImages/result1.png"
+              alt="Lesion segmented"
+            />
+          </div>
           <a
             href="https://github.com/deniselandini/Neural-Network"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
-        </div>
-
-        <div class="card section-content">
-          <h3>Interactive Graphics · Physics-Based Prototyping</h3>
-          <p style="color: var(--accent)">
-            <b><i>Graphics Programmer & Interaction Designer</i></b>
-          </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Creating "magical" and responsive digital
-            environments requires seamless integration of physics and user
-            proximity.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Developed a 3D scene in WebGL focused on real-time
-            spatial interactions and collision detection.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> An immersive world where entities react dynamically
-            to the character's presence through fluid animations and lighting.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Demonstrated the ability to build high-fidelity
-            prototypes that enhance user delight through responsive
-            environmental feedback.
-          </p>
-          <a
-            href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project"
             class="btn btn-sm"
             >View on GitHub</a
           >
@@ -930,8 +947,57 @@
             <b>Impact:</b> Contributed to a safer web ecosystem by providing
             technical solutions for privacy and integrity verification.
           </p>
+          <div class="media-grid">
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Vision-and-Perception/main/READMEImages/result1.png"
+              alt="Sample output from RRU-Net"
+            />
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Vision-and-Perception/main/READMEImages/result2.png"
+              alt="Sample output from RRU-Net with FSM"
+            />
+          </div>
           <a
             href="https://github.com/deniselandini/Vision-and-Perception"
+            class="btn btn-sm"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="card section-content">
+          <h3>Explainable AI · Agent Behavior Transparency</h3>
+          <p style="color: var(--accent)">
+            <b><i>AI Interaction Researcher & Engineer</i></b>
+          </p>
+          <p class="timeline-text">
+            <b>Problem:</b> Reinforcement Learning agents act as "black boxes,"
+            making it difficult for users to trust or understand autonomous
+            decisions.
+          </p>
+          <p class="timeline-text">
+            <b>Approach:</b> Implemented a framework to translate complex
+            rewards into "intended outcomes," making agent logic human-readable.
+          </p>
+          <p class="timeline-text">
+            <b>Solution:</b> A system that generates semantic explanations for
+            agent actions based on future predicted states.
+          </p>
+          <p class="timeline-text">
+            <b>Impact:</b> Enhanced user trust by bridging the gap between
+            complex AI logic and intuitive human understanding.
+          </p>
+          <div class="media-grid">
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Reinforcement-Learning/main/READMEimages/env1_video.gif"
+              alt="Video of one epoch Carpole environment"
+            />
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Reinforcement-Learning/main/READMEimages/env3_video.gif"
+              alt="Video of one epoch of our environment"
+            />
+          </div>
+          <a
+            href="https://github.com/deniselandini/Reinforcement-Learning"
             class="btn btn-sm"
             >View on GitHub</a
           >
@@ -959,6 +1025,16 @@
             robotics, ensuring devices adapt to the user's specific physical
             constraints.
           </p>
+          <div class="media-grid">
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Medical-Robotics/main/READMEimages/videoSiline.gif"
+              alt="Simulation in OpenSim Siline"
+            />
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Medical-Robotics/main/READMEimages/videoLina.gif"
+              alt="Simulation in OpenSim Lina"
+            />
+          </div>
           <a
             href="https://github.com/deniselandini/Medical-Robotics"
             class="btn btn-sm"
@@ -967,7 +1043,7 @@
         </div>
 
         <div class="card section-content">
-          <h3>Robotics UX · Predictable Path Planning</h3>
+          <h3>Autonomous and Mobile Robotics · Predictable Path Planning</h3>
           <p style="color: var(--accent)">
             <b><i>Robotics Software Engineer</i></b>
           </p>
@@ -987,6 +1063,16 @@
             <b>Impact:</b> Improved the human-robot interaction experience by
             making autonomous behavior more predictable and reliable.
           </p>
+          <div class="media-grid">
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Autonomous-Mobile-Robotics/main/READMEimages/envTestFDS_planning.gif"
+              alt="AMR Planning Animation"
+            />
+            <img
+              src="https://raw.githubusercontent.com/deniselandini/Autonomous-Mobile-Robotics/main/READMEimages/envTestFDS.gif"
+              alt="AMR Execution Animation"
+            />
+          </div>
           <a
             href="https://github.com/deniselandini/Autonomous-Mobile-Robotics"
             class="btn btn-sm"
