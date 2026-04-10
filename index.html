@@ -237,7 +237,16 @@
         background: var(--surface);
         border-radius: 20px;
         box-shadow: var(--dp1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
+
+      .process-step:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--dp4);
+      }
+
       .process-step svg {
         color: var(--accent);
       }
@@ -434,6 +443,14 @@
         padding: 28px;
         border-radius: 24px;
         box-shadow: var(--dp1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--dp4);
       }
 
       .skill-card h4 {
