@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Denise Landini – Interaction Designer & AI Engineer</title>
+
+<style>
+:root {
+  --bg: #f8f7f4;
+  --text: #1a1a1a;
+  --text-light: #6b6b6b;
+  --accent: #ff6b6b;
+  --card: rgba(255,255,255,0.7);
+  --border: rgba(0,0,0,0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  padding: 12px 30px;
+  border-radius: 999px;
+  display: flex;
+  gap: 25px;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* SECTIONS */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--text-light);
+  max-width: 700px;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--text);
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: var(--accent);
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+/* TIMELINE STYLE */
+.timeline-text {
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 25px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.skill-header i {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.skill-card h4 {
+  font-size: 1.1rem;
+}
+
+.skill-card ul {
+  list-style: none;
+}
+
+.skill-card li {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.skill-block {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.skill-block h4 {
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  h1 { font-size: 2.5rem; }
+}
+</style>
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    lucide.createIcons();
+  });
+</script>
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+</nav>
+
+
+<section class="section hero">
+  <div style="display:flex; align-items:center; gap:60px; flex-wrap:wrap;">
+
+    <div style="width:280px; height:380px; border-radius:20px; overflow:hidden;">
+      <img src="deniseLandini.jpg"
+           style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+    <div>
+      <h1>DENISE<br>LANDINI</h1>
+
+      <p class="timeline-text">
+        Interaction Designer & AI Engineer.
+      </p>
+	  <p class="timeline-text">
+		Master's Degree in Artificial Intelligence and Robotics
+      </p>
+
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="about" class="section">
+  <h2>About</h2>
+
+  <p>
+	Interaction Designer & AI Engineer.
+	I design intuitive, human-centered experiences for complex systems, 
+	specializing in artificial intelligence, robotics, and human-machine interaction.
+	I transform advanced research into accessible, real-world products.
+  </p>
+</section>
+
+
+<section id="experience" class="section">
+  <h2>Experience</h2>
+
+  <div class="card">
+    <h3>SOFTWARE ENGINEER - EMBEDDED & APPLICATIONS</h3>
+    <p><b><i>Triple-IN GmbH · 09.2025 – Present</b></i></p>
+
+    <p class="timeline-text">
+	Led the end-to-end design and development of internal digital tools, 
+	transforming manual Excel-based workflows into a scalable, user-centered platform.
+	</p>
+    <p class="timeline-text">
+	Designed and implemented a React and Swift ecosystem integrated with Odoo ERP, 
+	improving data traceability, usability, and operational efficiency.
+    </p>
+  </div>
+
+  <div class="card">
+      <h3>FULL STACK SOFTWARE ENGINEER</h3>
+	  <p><b><i>Teleconsys spa • 07.2022 - 08.2025</b></i></p>
+	  <p class="timeline-text">
+		<b>Full-stack implementation of DeskNow,</b>, an enterprise smart-office platform, where I developed the 
+		JavaScript frontend and <b>C# (.NET)</b> backend with <b>MongoDB NoSQL</b> infrastructure while integrating a
+		custom Chatbot to automate real-time resource booking and user support. https://desknow.teleconsys.it
+	  </p>
+	  <p class="timeline-text">
+		  Lead Full-Stack Developer for Nucleco, where I managed the entire software lifecycle for radiological
+		  waste management, overseeingstakeholder requirements, system architecture, and the end-to-end
+		  deploymentof mission-critical features to optimize data reliability and complex operational workflows.
+	  </p>
+	  <p class="timeline-text">
+		  Legacy Project Optimization, focused on refactoring existing applications to significantly enhance
+		  UI/UX design, system performance, and overall graphic consistency, ensuring a modern and seamless
+		  experience for real-world users.
+	  </p>
+	  <p class="timeline-text">
+		  Innovation Team specialist focused on architecting an AI-driven RAG (Retrieval-Augmented
+		  Generation)system for the legal sector, leveraging LLMs and Vector Databases to automate complex
+		  document analysis and litigation workflows.
+	  </p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <h2>Education</h2>
+
+  <div class="card">
+	<h3>Master's Degree in Artificial Intelligence and Robotics</h3>
+	<p><b><i>La Sapienza - University of Rome • 2020 - 2022</b></i></p>
+	<p class="timeline-text">
+	  <b>Program:</b> specialization in Artificial Intelligence and complex systems, with a strong focus on machine learning, neural networks, reinforcement learning, computer vision, and robotics. Developed expertise in designing intelligent and autonomous systems, including robot modeling, control, and human-robot interaction. <br />
+	  Thesis focused on the integration of intelligent architectures. <br />
+	  Final grade: 110/110 with honors.
+	</p>
+
+    <p class="timeline-text">
+      <b>Thesis:</b> Quaternion Neural Network applied to Visual Odometry System 
+    </p>
+
+    <p class="timeline-text">
+      <b>Final grade</b>: 110L/110 with honors program
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Bachelor’s Degree in Computer Engineering</h3>
+    <p><b><i>University of Modena and Reggio Emilia • 2017 – 2020</b></i></p>
+
+    <p class="timeline-text">
+      <b>Program:</b> strong foundations in algorithms, data structures, networks, and object-oriented programming.
+    </p>
+	<p class="timeline-text">
+      <b>Thesis:</b> IoT applied to Mobiliy: Smart Parking with Bosch 
+	  <br>In partnership with Bosch and the Municipality of Mantova, I engineered a monitoring system designed for
+	  data ingestion from IoT parking sensors. The solution features a Java-based backend for data processing and
+	  a dedicated Android mobile application, enabling end-users to access real-time occupancy analytics.
+    </p>
+
+    <p class="timeline-text">
+      <b>Final grade</b>: 101/110
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Selected Projects</h2>
+
+  <div class="card">
+    <h3>UX Case Study • Engineering Firm Platform</h3>
+    <p class="timeline-text"><b>Role:</b> Interaction Designer & Full-Stack Engineer</p>
+    <p class="timeline-text"><b>Problem:</b> Complex technical services lacked a clear digital experience, creating friction for users trying to navigate professional offerings.</p>
+    <p class="timeline-text"><b>Approach:</b> Applied UCD methodology, focusing on information hierarchy and mobile-first interactions to simplify complex domain knowledge.</p>
+    <p class="timeline-text"><b>Solution:</b> A responsive platform with intuitive navigation and optimized performance across all devices.</p>
+    <p class="timeline-text"><b>Impact:</b> Reduced user friction and improved engagement by making professional services accessible on-the-go.</p>
+    <a href="https://www.stalandinimaduzzi.it/" class="btn">Visit Website</a>
+  </div>
+
+  <div class="card">
+    <h3>UX Case Study • Interactive RSVP Experience</h3>
+    <p class="timeline-text"><b>Role:</b> Interaction Designer & Frontend Developer</p>
+    <p class="timeline-text"><b>Problem:</b> Traditional invitations often lack accessibility for users with low digital literacy, leading to confusion and high drop-off rates.</p>
+    <p class="timeline-text"><b>Approach:</b> Prioritized clarity and visual affordances, focusing on the mental models of elderly users to ensure a frictionless flow.</p>
+    <p class="timeline-text"><b>Solution:</b> A minimalist web app with a simplified RSVP system and clear feedback loops.</p>
+    <p class="timeline-text"><b>Impact:</b> Achieved high completion rates across all age groups through an inclusive and delightful user journey.</p>
+    <a href="https://deniselandini.github.io/save_the_date/" class="btn">Explore Project</a>
+    <a href="https://github.com/deniselandini/save_the_date" class="btn">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Explainable AI • Agent Behavior Transparency</h3>
+    <p class="timeline-text"><b>Role:</b> AI Interaction Researcher & Engineer</p>
+    <p class="timeline-text"><b>Problem:</b> Reinforcement Learning agents act as "black boxes," making it difficult for users to trust or understand autonomous decisions.</p>
+    <p class="timeline-text"><b>Approach:</b> Implemented a framework to translate complex rewards into "intended outcomes," making agent logic human-readable.</p>
+    <p class="timeline-text"><b>Solution:</b> A system that generates semantic explanations for agent actions based on future predicted states.</p>
+    <p class="timeline-text"><b>Impact:</b> Enhanced <b>User Trust</b> by bridging the gap between complex AI logic and intuitive human understanding.</p>
+    <a href="https://github.com/deniselandini/Reinforcement-Learning" class="btn">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Medical UX • High-Precision Stroke Detection</h3>
+    <p class="timeline-text"><b>Role:</b> Deep Learning Engineer & UX Researcher</p>
+    <p class="timeline-text"><b>Problem:</b> In medical diagnostics, AI inaccuracy or "noise" can lead to clinical distrust and diagnostic errors.</p>
+    <p class="timeline-text"><b>Approach:</b> Utilized Quaternion Neural Networks to capture complex MRI correlations, focusing on reducing false positives for better clinical reliability.</p>
+    <p class="timeline-text"><b>Solution:</b> An X-Net implementation that provides stable and precise lesion segmentation boundaries.</p>
+    <p class="timeline-text"><b>Impact:</b> Provided a more reliable decision-support tool for specialists, prioritizing <b>accuracy and safety</b> in critical environments.</p>
+    <a href="https://github.com/deniselandini/Neural-Network" class="btn">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Interactive Graphics • Physics-Based Prototyping</h3>
+    <p class="timeline-text"><b>Role:</b> Graphics Programmer & Interaction Designer</p>
+    <p class="timeline-text"><b>Problem:</b> Creating "magical" and responsive digital environments requires seamless integration of physics and user proximity.</p>
+    <p class="timeline-text"><b>Approach:</b> Developed a 3D scene in WebGL focused on real-time spatial interactions and collision detection.</p>
+    <p class="timeline-text"><b>Solution:</b> An immersive world where entities react dynamically to the character's presence through fluid animations and lighting.</p>
+    <p class="timeline-text"><b>Impact:</b> Demonstrated the ability to build <b>high-fidelity prototypes</b> that enhance user delight through responsive environmental feedback.</p>
+    <a href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project" class="btn">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Digital Trust • Image Forgery Detection System</h3>
+    <p class="timeline-text"><b>Role:</b> Computer Vision Researcher</p>
+    <p class="timeline-text"><b>Problem:</b> Digital deception through image splicing undermines user trust in online information and security.</p>
+    <p class="timeline-text"><b>Approach:</b> Enhanced RRU-Net with a Feature Selection Module (FSM) to adaptively highlight informative artifacts of tampering.</p>
+    <p class="timeline-text"><b>Solution:</b> A robust detection model that identifies subtle manipulation in authentic-looking images.</p>
+    <p class="timeline-text"><b>Impact:</b> Contributed to a safer web ecosystem by providing technical solutions for <b>privacy and integrity</b> verification.</p>
+    <a href="https://github.com/deniselandini/Vision-and-Perception" class="btn">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Medical Robotics • Musculoskeletal Motion Analysis</h3>
+    <p class="timeline-text"><b>Role:</b> Biomechanical Modeler & Robotics Engineer</p>
+    <p class="timeline-text"><b>Problem:</b> Assistive devices often fail because they don't account for the diverse biomechanical needs of both adults and children.</p>
+    <p class="timeline-text"><b>Approach:</b> Developed a dual-scale musculoskeletal model to evaluate joint interactions and motor dynamics.</p>
+    <p class="timeline-text"><b>Solution:</b> A simulation framework that provides quantitative data for personalized rehabilitation and robotic design.</p>
+    <p class="timeline-text"><b>Impact:</b> Enabled more <b>user-centric design</b> for assistive robotics, ensuring devices adapt to the user's specific physical constraints.</p>
+    <a href="https://github.com/deniselandini/Medical-Robotics" class="btn">View on GitHub</a>
+  </div>
+
+  <div class="card">
+    <h3>Robotics UX • Predictable Path Planning</h3>
+    <p class="timeline-text"><b>Role:</b> Robotics Software Engineer</p>
+    <p class="timeline-text"><b>Problem:</b> Robots in human environments often move in unpredictable ways, causing user anxiety or safety concerns.</p>
+    <p class="timeline-text"><b>Approach:</b> Integrated A* algorithms with kinematic constraints to ensure paths are not just optimal, but "smooth" and human-readable.</p>
+    <p class="timeline-text"><b>Solution:</b> A grid-based navigation system for differential drive robots that prioritizes collision-free, fluid movement.</p>
+    <p class="timeline-text"><b>Impact:</b> Improved the **human-robot interaction** experience by making autonomous behavior more predictable and reliable.</p>
+    <a href="https://github.com/deniselandini/Autonomous-Mobile-Robotics" class="btn">View on GitHub</a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <h2>Skills</h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <i data-lucide="pen-tool"></i>
+        <h4>Design</h4>
+      </div>
+      <ul>
+        <li>Interaction Design</li>
+        <li>User Flows & Wireframing</li>
+        <li>Prototyping (Figma)</li>
+        <li>Accessibility (WCAG)</li>
+        <li>Information Architecture</li>
+      </ul>
+    </div>
+
+	<div class="skill-card">
+      <div class="skill-header">
+        <i data-lucide="pen-tool"></i>
+        <h4>Web developing</h4>
+      </div>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+		<li>C# (.NET)</li>
+		<li>C</li>
+		<li>C++</li>
+        <li>React</li>
+        <li>PHP</li>
+		<li>WebGL</li>
+      </ul>
+    </div>
+
+	<div class="skill-card">
+      <div class="skill-header">
+        <i data-lucide="pen-tool"></i>
+        <h4>Database</h4>
+      </div>
+      <ul>
+        <li>MySQL</li>
+        <li>PostgreSQL</li>
+        <li>MongoDB</li>
+		<li>MicrosoftSQLServer</li>
+        <li>PHP</li>
+        <li>Java</li>
+		<li>Eclipse</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <i data-lucide="brain"></i>
+        <h4>AI & ML</h4>
+      </div>
+      <ul>
+        <li>Python</li>
+        <li>Keras</li>
+        <li>PyTorch</li>
+        <li>OpenAIGym</li>
+		<li>Anaconda</li>
+		<li>GoogleColab</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <i data-lucide="code"></i>
+        <h4>Robot Programming</h4>
+      </div>
+      <ul>
+        <li>Matlab</li>
+        <li>OpenSim</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-header">
+        <i data-lucide="tool"></i>
+        <h4>Tools & Workflow</h4>
+      </div>
+      <ul>
+        <li>Figma</li>
+        <li>Git / GitHub</li>
+        <li>Agile / Scrum</li>
+        <li>User Testing</li>
+        <li>Prototyping & Iteration</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Denise Landini</p>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
