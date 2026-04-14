@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAL</title>
+
+    <link rel="stylesheet" href="style/canvasBackground.css" />
+    <link rel="stylesheet" href="style/scrollReveal.css" />
+    <link rel="stylesheet" href="style/global.css" />
+
+    <style>
+      :root {
+        --bg: #f8f7f4;
+        --text: #1a1a1a;
+        --text-light: #6b6b6b;
+        --accent: #ff6b6b;
+        --surface: #ffffff;
+        --border: rgba(0, 0, 0, 0.07);
+        --dp1: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --dp4: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      nav {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 12px 32px;
+        border-radius: 999px;
+
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+
+        z-index: 1000;
+        box-shadow: var(--dp1);
+        border: 1px solid var(--border);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section {
+        padding: 80px 0 40px;
+      }
+
+      #collaboration,
+      #process {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #collaboration img,
+      #process img {
+        width: 75% !important;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 48px;
+        font-weight: 700;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 4px;
+        background: var(--accent);
+        margin-top: 10px;
+        border-radius: 2px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        color: var(--text);
+        margin-top: 24px;
+      }
+
+      p {
+        color: var(--text-light);
+        font-size: 1.05rem;
+      }
+
+      #hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        padding-top: 100px;
+      }
+
+      .hero-text h1 {
+        font-size: 4.5rem;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -2px;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+
+      .hero-text h1 span {
+        color: var(--accent);
+      }
+
+      .hero-sub p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        line-height: 1.6;
+        max-width: 700px;
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 40px;
+        border-radius: 24px;
+        margin-bottom: 28px;
+        box-shadow: var(--dp1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--dp4);
+      }
+
+      .timeline-text {
+        border-left: 3px solid var(--accent);
+        padding-left: 20px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 0.5px;
+        background: var(--border);
+        margin: 1.5rem 0;
+      }
+
+      .bullets {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .bullets li {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        line-height: 1.65;
+        padding: 0.25rem 0 0.25rem 18px;
+        position: relative;
+        margin-bottom: 8px;
+      }
+
+      .bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        opacity: 0.7;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 26px;
+        border-radius: 999px;
+        background: var(--text);
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+      }
+
+      .btn:hover {
+        background: var(--accent);
+        box-shadow: 0 8px 20px rgba(232, 165, 165, 0.35);
+      }
+
+      .mockup-container {
+        margin-top: 30px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--dp1);
+        background: #000;
+      }
+
+      .mockup-container img {
+        width: 100%;
+        display: block;
+        transition: 0.5s;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+
+      .media-grid img,
+      .media-grid iframe,
+      .media-grid video {
+        width: 100%;
+        height: 100%;
+        /*min-height: 250px;*/
+        grid-column: span 1;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .media-grid img:hover {
+        transform: scale(1.02);
+      }
+      @media (max-width: 768px) {
+        .hero-text h1 {
+          font-size: 2.8rem;
+        }
+        .card {
+          padding: 24px;
+        }
+        nav {
+          padding: 10px 15px;
+          gap: 10px;
+          width: 90%;
+        }
+        nav a {
+          font-size: 9px;
+        }
+        .media-grid {
+          grid-template-columns: repeat(1, minmax(300px, 1fr));
+        }
+      }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <!-- CANVAS PARTICLES -->
+    <canvas id="bg-canvas"></canvas>
+    <script src="scripts/canvasBackground.js"></script>
+
+    <nav>
+      <a href="index.html">
+        <i
+          data-lucide="arrow-left"
+          style="vertical-align: middle; width: 14px"
+        ></i>
+        Back
+      </a>
+      <a href="#collaboration">1. Context</a>
+      <a href="#process">2. Process</a>
+      <a href="#solving">3. Problem Solving</a>
+      <a href="#execution">4. Execution</a>
+    </nav>
+
+    <div class="container">
+      <section id="hero">
+        <div class="hero-inner">
+          <div class="hero-text scroll-reveal">
+            <span
+              style="
+                color: var(--accent);
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-size: 0.9rem;
+              "
+              >Enterprise SaaS Solution</span
+            >
+            <h1>SAL<br /><span>Reporting</span></h1>
+            <div class="hero-sub">
+              <p>
+                UX/UI design for a management interface dedicated to contract
+                monitoring and work progress (SAL). A complex ecosystem
+                transforming raw operational data into precise, transparent
+                billing for major service consortiums.
+              </p>
+              <a href="index.html#experience" class="btn btn-ghost"
+                >View in Timeline</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="collaboration" class="section">
+        <div class="card scroll-reveal">
+          <h3>1. Communication & Collaboration</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>Aligning cross-departmental business logic</i></b>
+          </p>
+
+          <p class="timeline-text">
+            <b>The Challenge:</b> As an internal platform for
+            <b>CNS (Consorzio Nazionale Servizi)</b>, the primary hurdle was
+            aligning the needs of diverse departments: from administrative teams
+            managing contracts to operators monitoring daily workflows.
+          </p>
+
+          <p class="timeline-text">
+            <b>Iterative Workshops:</b> I led collaborative sessions on Figma to
+            map the entire contract lifecycle.
+          </p>
+
+          <p class="timeline-text">
+            <b>Consistent Design System:</b> I strictly followed client brand
+            guidelines for typography and color palettes, ensuring the tool felt
+            like a native, integrated part of the corporate ecosystem.
+          </p>
+        </div>
+        <img
+          src="https://raw.githubusercontent.com/deniselandini/deniselandini/main/SAL1.gif"
+          alt="Lesion segmented"
+          style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+        />
+      </section>
+
+      <section id="process" class="section">
+        <div class="card scroll-reveal">
+          <h3>2. Process & User Focus</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>Reducing human error in sensitive data environments</i></b>
+          </p>
+
+          <p>
+            Enterprise users require control and speed. The interface was
+            structured to minimize cognitive load during the entry of sensitive
+            accounting data.
+          </p>
+
+          <div class="divider"></div>
+
+          <h4>Core Operational Features</h4>
+          <ul class="bullets">
+            <li>
+              <b>Critical Control Dashboard:</b> A home screen designed to
+              highlight immediate issues, such as "out-of-package" contracts or
+              upcoming deadlines, using high-contrast numerical cards.
+            </li>
+            <li>
+              <b>Modular Data Entry:</b> The contract creation flow is divided
+              into logical blocks (Details, Lots, Additional Packages), helping
+              operators maintain focus during long, complex form sessions.
+            </li>
+            <li>
+              <b>Contextual Navigation:</b> Clear visual markers allow users to
+              switch between different contract phases without losing their
+              progress.
+            </li>
+          </ul>
+        </div>
+        <img
+          src="https://raw.githubusercontent.com/deniselandini/deniselandini/main/SAL2.gif"
+          alt="Lesion segmented"
+          style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+        />
+      </section>
+
+      <section id="solving" class="section">
+        <div class="card scroll-reveal">
+          <h3>3. Problem-Solving & Creativity</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>From raw data to billing transparency</i></b>
+          </p>
+
+          <p class="timeline-text">
+            <b>The Problem:</b> Justifying extra costs to the final client was a
+            major pain point. Data regarding call minutes and inbound/outbound
+            contact volumes were often difficult to interpret and prone to
+            disputes.
+          </p>
+
+          <p class="timeline-text">
+            <b>The Visual Solution:</b> I introduced automated annual and
+            monthly summary tables that calculate the "Delta" (variance) between
+            contracted volumes and actual service usage. This transformation
+            from raw tables to a "Billing Authorization Request" is now
+            immediate and evidence-based.
+          </p>
+        </div>
+      </section>
+
+      <section id="execution" class="section">
+        <div class="card scroll-reveal">
+          <h3>4. Execution & Best Practices</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>Scalability through Atomic Design</i></b>
+          </p>
+
+          <ul class="bullets">
+            <li>
+              <b>Figma High-Fidelity:</b> Mockups were built using atomic
+              components, allowing for the management of dozens of states
+              (editing, read-only, validation errors) while maintaining
+              pixel-perfect consistency.
+            </li>
+            <li>
+              <b>Semantic UX:</b> Strategic use of color (e.g., Red for
+              "Out-of-Package" alerts) guides the user's attention to financial
+              discrepancies instantly.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 0 0 60px 0;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      "
+    >
+      &copy; 2026 Denise Landini — UX/UI Designer
+    </footer>
+
+    <!-- SCROLL REVEAL -->
+    <script src="scripts/scrollReveal.js"></script>
+    <!-- LOAD LUCIDE -->
+    <script src="scripts/loadLucide.js"></script>
+  </body>
+</html>

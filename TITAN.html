@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TITAN - Production Management Case Study | Portfolio</title>
+
+    <link rel="stylesheet" href="style/canvasBackground.css" />
+    <link rel="stylesheet" href="style/scrollReveal.css" />
+    <link rel="stylesheet" href="style/global.css" />
+
+    <style>
+      :root {
+        --bg: #f8f7f4;
+        --text: #1a1a1a;
+        --text-light: #6b6b6b;
+        --accent: #ff6b6b;
+        --surface: #ffffff;
+        --border: rgba(0, 0, 0, 0.07);
+        --dp1: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --dp4: 0 8px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      nav {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 12px 32px;
+        border-radius: 999px;
+
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+
+        z-index: 1000;
+        box-shadow: var(--dp1);
+        border: 1px solid var(--border);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section {
+        padding: 80px 0 40px;
+      }
+
+      #process {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #process img {
+        width: 75% !important;
+      }
+
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 48px;
+        font-weight: 700;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 4px;
+        background: var(--accent);
+        margin-top: 10px;
+        border-radius: 2px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        color: var(--text);
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        color: var(--text);
+        margin-top: 24px;
+      }
+
+      p {
+        color: var(--text-light);
+        font-size: 1.05rem;
+      }
+
+      #hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        padding-top: 100px;
+      }
+
+      .hero-text h1 {
+        font-size: 4.5rem;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -2px;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+
+      .hero-text h1 span {
+        color: var(--accent);
+      }
+
+      .hero-sub p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        line-height: 1.6;
+        max-width: 700px;
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 40px;
+        border-radius: 24px;
+        margin-bottom: 28px;
+        box-shadow: var(--dp1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--dp4);
+      }
+
+      .timeline-text {
+        border-left: 3px solid var(--accent);
+        padding-left: 20px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 0.5px;
+        background: var(--border);
+        margin: 1.5rem 0;
+      }
+
+      .bullets {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .bullets li {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        line-height: 1.65;
+        padding: 0.25rem 0 0.25rem 18px;
+        position: relative;
+        margin-bottom: 8px;
+      }
+
+      .bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        opacity: 0.7;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 26px;
+        border-radius: 999px;
+        background: var(--text);
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+      }
+
+      .btn:hover {
+        background: var(--accent);
+        box-shadow: 0 8px 20px rgba(232, 165, 165, 0.35);
+      }
+
+      .mockup-container {
+        margin-top: 30px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--dp1);
+        background: #000;
+      }
+
+      .mockup-container img {
+        width: 100%;
+        display: block;
+        transition: 0.5s;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+
+      .media-grid img,
+      .media-grid iframe,
+      .media-grid video {
+        width: 100%;
+        height: 100%;
+        grid-column: span 1;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .media-grid img:hover {
+        transform: scale(1.02);
+      }
+      @media (max-width: 768px) {
+        .hero-text h1 {
+          font-size: 2.8rem;
+        }
+        .card {
+          padding: 24px;
+        }
+        nav {
+          padding: 10px 15px;
+          gap: 10px;
+          width: 90%;
+        }
+        nav a {
+          font-size: 9px;
+        }
+        .media-grid {
+          grid-template-columns: repeat(1, minmax(300px, 1fr));
+        }
+      }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <canvas id="bg-canvas"></canvas>
+    <script src="scripts/canvasBackground.js"></script>
+
+    <nav>
+      <a href="index.html">
+        <i
+          data-lucide="arrow-left"
+          style="vertical-align: middle; width: 14px"
+        ></i>
+        Back
+      </a>
+      <a href="#collaboration">1. Context</a>
+      <a href="#process">2. Process</a>
+      <a href="#solving">3. Problem Solving</a>
+      <a href="#execution">4. Execution</a>
+    </nav>
+
+    <div class="container">
+      <section id="hero">
+        <div class="hero-inner">
+          <div class="hero-text scroll-reveal">
+            <span
+              style="
+                color: var(--accent);
+                font-weight: 600;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-size: 0.9rem;
+              "
+              >Industrial SaaS Solution</span
+            >
+            <h1>TITAN<br /><span>Production</span></h1>
+            <div class="hero-sub">
+              <p>
+                UX/UI design and front-end implementation for a manufacturing
+                interface dedicated to the production of Laser/LiDAR sensors. A
+                solution designed to replace legacy Excel files, perfectly
+                integrated with the Odoo ERP system.
+              </p>
+              <a href="index.html#experience" class="btn btn-ghost"
+                >View in Timeline</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="collaboration" class="section">
+        <div class="card scroll-reveal">
+          <h3>1. Communication & Collaboration</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b
+              ><i
+                >Aligning cross-functional teams and technical constraints</i
+              ></b
+            >
+          </p>
+
+          <p class="timeline-text">
+            <b>The Challenge:</b> The primary goal was to replace error-prone
+            Excel spreadsheets by mapping the real workflows of the factory
+            floor. I organized collaborative workshops with production managers
+            and assembly line operators to understand their daily bottlenecks.
+          </p>
+
+          <p class="timeline-text">
+            <b>Developer Synergy:</b> I worked closely with the development team
+            from the earliest stages. This ensured that my design proposals were
+            technically feasible and perfectly aligned with the complex database
+            architecture.
+          </p>
+
+          <p class="timeline-text">
+            <b>Continuous Feedback Loop:</b> I facilitated weekly review
+            sessions to showcase product evolution, ensuring that complex
+            technical language was translated into an intuitive interface for
+            the production operators.
+          </p>
+        </div>
+      </section>
+
+      <section id="process" class="section">
+        <div class="card scroll-reveal">
+          <h3>2. Process & User Focus</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>Designing for the physical factory environment</i></b>
+          </p>
+
+          <p>
+            The interface was designed with the physical context in mind.
+            Deployed on individual industrial workstations, the app prioritizes
+            a clean layout and rapid data entry for operators who often work
+            with gloves.
+          </p>
+
+          <div class="divider"></div>
+
+          <h4>Core Methodological Steps</h4>
+          <ul class="bullets">
+            <li>
+              <b>User Research:</b> We identified that using shared Excel files
+              for LiDAR production caused data loss, made tracking component
+              revisions nearly impossible, and generated high cognitive load.
+            </li>
+            <li>
+              <b>Contextual Design:</b> Created a high-legibility interface with
+              enlarged click targets, optimizing the user experience for
+              fast-paced assembly line conditions.
+            </li>
+            <li>
+              <b>Iterative Prototyping:</b> Started with low-fidelity paper
+              sketches tested directly with operators, quickly moving to
+              interactive Figma mockups to validate navigation flows before
+              writing any code.
+            </li>
+          </ul>
+        </div>
+        <img
+          src="https://raw.githubusercontent.com/deniselandini/deniselandini/main/TITAN_Video.gif"
+          style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+        />
+      </section>
+
+      <section id="solving" class="section">
+        <div class="card scroll-reveal">
+          <h3>3. Problem-Solving & Creativity</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>Seamless ERP integration and advanced security</i></b>
+          </p>
+
+          <p class="timeline-text">
+            <b>The Problem:</b> The core technical challenge was integrating
+            TITAN with the company's ERP (Odoo) without forcing operators to
+            switch between two different software platforms during production.
+          </p>
+
+          <p class="timeline-text">
+            <b>The Visual Solution:</b> We developed custom Odoo modules. From a
+            UX perspective, I designed an invisible experience where users
+            synchronize data without perceiving the platform jump. Furthermore,
+            I implemented a strict
+            <b>Role-Based Access Control (RBAC)</b> system. Each workstation
+            only displays the tools relevant to the logged-in operator,
+            drastically simplifying the UI and ensuring data security.
+            Error-prevention mechanics, like visual alerts for obsolete BOM
+            revisions, were integrated to prevent fatal assembly errors.
+          </p>
+        </div>
+      </section>
+
+      <section id="execution" class="section">
+        <div class="card scroll-reveal">
+          <h3>4. Execution & Best Practices</h3>
+          <p style="color: var(--accent); margin-bottom: 20px">
+            <b><i>End-to-end delivery and measurable business impact</i></b>
+          </p>
+
+          <ul class="bullets">
+            <li>
+              <b>Front-end Implementation:</b> I went beyond design
+              deliverables, actively coding the front-end and back-end
+              implementation to guarantee pixel-perfect fidelity and ensure that
+              interactive behaviors matched the initial vision.
+            </li>
+            <li>
+              <b>Scalable UI System:</b> Built a comprehensive library of
+              reusable UI components (data tables, functional buttons, search
+              filters) to maintain visual consistency and accelerate future
+              module development.
+            </li>
+            <li>
+              <b>Measurable Results:</b> Achieved a
+              <b>45% reduction in human error</b> during data entry, decreased
+              new operator onboarding time by 30% due to simplified,
+              role-specific UIs, and saved the management team 12 hours a week
+              through automated Odoo synchronization.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <footer
+      style="
+        text-align: center;
+        padding: 0 0 60px 0;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      "
+    >
+      &copy; 2026 UX/UI Designer
+    </footer>
+
+    <script src="scripts/scrollReveal.js"></script>
+    <script src="scripts/loadLucide.js"></script>
+  </body>
+</html>
