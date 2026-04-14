@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Denise Landini – Portfolio</title>
+    <title>Denise Landini - Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+
+    <link rel="stylesheet" href="style/canvasBackground.css" />
+    <link rel="stylesheet" href="style/scrollReveal.css" />
+    <link rel="stylesheet" href="style/global.css" />
 
     <style>
       :root {
@@ -32,17 +44,6 @@
         line-height: 1.6;
         overflow-x: hidden;
         scroll-behavior: smooth;
-      }
-
-      /* CANVAS */
-      #bg-canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 0;
-        pointer-events: none;
       }
 
       /* NAVIGATION */
@@ -224,49 +225,67 @@
       }
 
       /* PROCESS */
-      .process-grid {
+      .strategy-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 18px;
-        margin-top: 28px;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
       }
-
-      .process-step {
-        text-align: center;
-        padding: 24px 18px;
+      .strategy-card {
         background: var(--surface);
-        border-radius: 20px;
+        padding: 40px;
+        border-radius: 24px;
+        border: 1px solid var(--border);
         box-shadow: var(--dp1);
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
+        transition: all 0.3s ease;
       }
-
-      .process-step:hover {
-        transform: translateY(-4px);
+      .strategy-card:hover {
+        transform: translateY(-5px);
         box-shadow: var(--dp4);
       }
-
-      .process-step svg {
-        color: var(--accent);
+      .strategy-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
       }
-      .process-step h4 {
+      .icon-accent {
         color: var(--accent);
+        width: 28px;
+        height: 28px;
       }
-      .process-step i {
+      .strategy-card h4 {
+        font-size: 1.4rem;
+        margin: 0;
+      }
+      .strategy-card p {
+        font-size: 1rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .strategy-bullets {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .strategy-bullets li {
+        background: #fafafa;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
         color: var(--accent);
-        margin-bottom: 15px;
-      }
-
-      .process-step h4 {
-        font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        margin-bottom: 8px;
       }
-
-      .process-step p {
-        font-size: 0.78rem;
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin-bottom: 20px;
       }
 
       /* EXPERIENCE & EDUCATION */
@@ -394,30 +413,94 @@
         transform: scale(1.02);
       }
 
+      /* FEATURED PROJECT SPLIT */
+      .project-card-split {
+        display: flex;
+        gap: 32px;
+        align-items: start;
+        justify-content: center;
+      }
+      .project-card-split.reversed {
+        flex-direction: row-reverse;
+      }
+
+      .project-info {
+        flex: 1;
+      }
+
+      .project-visual {
+        flex: 1;
+        margin-top: 12px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--dp4);
+        transition: transform 0.3s ease;
+      }
+
+      .project-visual:hover {
+        transform: scale(1.02);
+      }
+
+      .project-visual img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        .project-card-split,
+        .project-card-split.reversed {
+          flex-direction: column-reverse; /* Su mobile mette l'immagine sopra e il testo sotto. Se preferisci il contrario, usa 'column' */
+          gap: 24px;
+        }
+      }
+
+      /* FILTER BAR */
+      .filter-bar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .filter {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .filter.active {
+        background: var(--accent);
+        color: white;
+      }
+
       /* BUTTONS */
       .btn {
-        display: inline-block;
-        padding: 12px 26px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
         border-radius: 999px;
-        background: var(--text);
+        background: black;
         color: white;
         text-decoration: none;
         font-size: 14px;
-        font-weight: 600;
-        transition: all 0.3s;
-        border: none;
-        cursor: pointer;
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: black;
+        border: 1px solid black;
       }
 
       .btn:hover {
         background: var(--accent);
         box-shadow: 0 8px 20px rgba(232, 165, 165, 0.35);
-      }
-
-      .btn-ghost {
-        background: transparent;
-        color: var(--text);
-        border: 1.5px solid var(--text);
       }
 
       .btn-ghost:hover {
@@ -502,20 +585,6 @@
         color: var(--accent);
       }
 
-      /* SCROLL REVEAL */
-      .section-content {
-        opacity: 0;
-        transform: translateY(40px);
-        transition:
-          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .section-content.visible {
-        opacity: 1;
-        transform: none;
-      }
-
       /* RESPONSIVE */
       @media (max-width: 768px) {
         #hero {
@@ -550,9 +619,14 @@
           text-align: center;
         }
 
-        nav,
-        .floating-footer {
+        nav {
           width: 90%;
+          gap: 12px;
+          padding: 12px 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .floating-footer {
           gap: 12px;
           padding: 12px 16px;
           flex-wrap: wrap;
@@ -570,11 +644,125 @@
         }
       }
     </style>
+    <style>
+      /* Base variables for easy theming */
+      :root {
+        --primary: #ff6b6b;
+        --primary-hover: #ff5252;
+        --bg-dark: #121212;
+      }
+
+      .header-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        color: var(--text-light);
+        font-family: "Inter", system-ui, sans-serif;
+      }
+
+      .header-layout h3 {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      /* Wrapper to position the pop-out correctly */
+      .skills-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .skills-trigger {
+        width: max-content;
+        padding: 8px 24px;
+        border: 1px solid var(--primary);
+        border-radius: 14px;
+        background: var(--primary);
+        color: white;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        z-index: 10;
+      }
+
+      .skills-trigger:hover {
+        border: 1px solid var(--primary-hover);
+        background: white;
+        color: var(--primary-hover);
+      }
+
+      /* State when the pop-out is active */
+      .skills-wrapper.active .skills-trigger {
+        background: transparent;
+        color: var(--primary);
+      }
+
+      /* Container for the hidden skills */
+      .skills-popout {
+        position: absolute;
+        top: calc(100% + 15px);
+        right: 0;
+        width: 680px;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 8px;
+        pointer-events: none; /* Prevents clicking when hidden */
+      }
+
+      /* Individual skill tags */
+      .skill-tag {
+        padding: 6px 16px;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 107, 107, 0.3);
+        color: var(--primary);
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
+
+        /* Initial hidden state */
+        opacity: 0;
+        transform: translateY(-15px) scale(0.9);
+
+        /* The "cool" spring animation */
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* Uses the --i variable from HTML to stagger the animation */
+        transition-delay: calc(var(--i) * 0.06s);
+      }
+
+      /* Animation trigger class */
+      .skills-wrapper.active .skills-popout {
+        pointer-events: all;
+      }
+
+      .skills-wrapper.active .skill-tag {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      @media (max-width: 768px) {
+        .skills-popout {
+          width: 280px;
+        }
+      }
+    </style>
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
 
   <body>
+    <!-- CANVAS PARTICLES -->
     <canvas id="bg-canvas"></canvas>
+    <script src="scripts/canvasBackground.js"></script>
 
     <nav>
       <a href="#about">About</a>
@@ -590,7 +778,7 @@
       <section id="hero">
         <div class="hero-inner">
           <div class="hero-photo">
-            <img src="deniseLandini.jpg" alt="Denise Landini" />
+            <img src="assets/deniseLandini.jpg" alt="Denise Landini" />
           </div>
           <div class="hero-text">
             <h1>DENISE<br /><span>LANDINI</span></h1>
@@ -622,7 +810,7 @@
       <!-- ── ABOUT ─────────────────────────────────────── -->
       <section id="about" class="section">
         <h2>About</h2>
-        <div class="card section-content">
+        <div class="card scroll-reveal">
           <p style="font-size: 1.2rem; line-height: 1.8">
             I design intuitive, human-centered experiences for complex systems,
             specializing in artificial intelligence, robotics, and human-machine
@@ -634,32 +822,86 @@
 
       <!-- ── PROCESS ─────────────────────────────────────── -->
       <section id="process" class="section">
-        <h2>Design Process</h2>
-        <div class="process-grid section-content">
-          <div class="process-step">
-            <i data-lucide="search" size="32"></i>
-            <h4>Empathize</h4>
-            <p>User research & context analysis</p>
-          </div>
-          <div class="process-step">
-            <i data-lucide="target" size="32"></i>
-            <h4>Define</h4>
-            <p>Problem framing & Requirements</p>
-          </div>
-          <div class="process-step">
-            <i data-lucide="pen-tool" size="32"></i>
-            <h4>Ideate</h4>
-            <p>User flows & Wireframing</p>
-          </div>
-          <div class="process-step">
-            <i data-lucide="layers" size="32"></i>
-            <h4>Prototype</h4>
-            <p>Hi-fi interactive prototyping</p>
-          </div>
-          <div class="process-step">
-            <i data-lucide="check-circle" size="32"></i>
-            <h4>Test</h4>
-            <p>Usability testing & Iteration</p>
+        <div class="container">
+          <h2>Design as a <span>Strategic Tool</span></h2>
+          <p class="section-subtitle">
+            Beyond aesthetics, I focus on solving complex problems through
+            technical constraints and human-centered logic.
+          </p>
+
+          <div class="strategy-grid">
+            <div class="strategy-card">
+              <div class="strategy-header">
+                <i data-lucide="crosshair" class="icon-accent"></i>
+                <h4>01. Strategic Reframing</h4>
+              </div>
+              <p>
+                I don't just accept a brief; I challenge it. I look for the
+                <strong>"Why"</strong> behind every feature.
+              </p>
+              <ul class="strategy-bullets">
+                <li>Stakeholder Synthesis</li>
+                <li>Problem framing & Reframing</li>
+                <li>Identifying North Star Metrics</li>
+              </ul>
+            </div>
+
+            <div class="strategy-card">
+              <div class="strategy-header">
+                <i data-lucide="git-merge" class="icon-accent"></i>
+                <h4>02. Informed Trade-offs</h4>
+              </div>
+              <p>
+                I balance
+                <strong
+                  >user desires, business goals, and technical
+                  feasibility</strong
+                >. I make conscious decisions on what to prioritize to deliver
+                the most value.
+              </p>
+              <ul class="strategy-bullets">
+                <li>Technical Feasibility Checks</li>
+                <li>Balancing UX vs. Dev Effort</li>
+                <li>MVP Definition</li>
+              </ul>
+            </div>
+
+            <div class="strategy-card">
+              <div class="strategy-header">
+                <i data-lucide="refresh-cw" class="icon-accent"></i>
+                <h4>03. Radical Iteration</h4>
+              </div>
+              <p>
+                The first solution is rarely the best. I leverage
+                <strong>sketches, wireframes, and rapid prototyping</strong> to
+                fail fast and learn quickly. I present multiple solutions to
+                stakeholders, explaining the 'pros and cons' of each approach.
+              </p>
+              <ul class="strategy-bullets">
+                <li>Lo-fi to Hi-fi Prototyping</li>
+                <li>Usability Feedback Integration</li>
+                <li>Continuous Improvement Mindset</li>
+              </ul>
+            </div>
+
+            <div class="strategy-card">
+              <div class="strategy-header">
+                <i data-lucide="layers" class="icon-accent"></i>
+                <h4>04. High-Fidelity Execution</h4>
+              </div>
+              <p>
+                Details matter. I deliver
+                <strong>pixel-perfect designs</strong> with clear documentation
+                for developers. I obsess over micro-interactions, accessibility,
+                and design systems to ensure a seamless handoff and a polished
+                end-product.
+              </p>
+              <ul class="strategy-bullets">
+                <li>Atomic Design Systems</li>
+                <li>Motion & Interaction Details</li>
+                <li>Developer Handoff Excellence</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -669,9 +911,9 @@
         <h2>Experience</h2>
 
         <div class="tl-wrap">
-          <div class="tl-entry section-content">
+          <div class="tl-entry scroll-reveal">
             <div class="dot"></div>
-            <span class="period">09.2025 – Present</span>
+            <span class="period">09.2025 - Present</span>
             <div class="card">
               <h3>Interaction Designer & Front-End Developer</h3>
               <p style="color: var(--accent)">
@@ -689,14 +931,19 @@
                   <b>Swift</b> ecosystem integrated with Odoo ERP, improving
                   data traceability, usability, and operational efficiency.
                 </li>
+                <a href="TITAN.html" class="btn btn-sm btn-ghost">
+                  <span class="material-symbols-outlined">
+                    arrow_right_alt </span
+                  >View TITAN Process</a
+                >
               </ul>
             </div>
           </div>
 
-          <div class="tl-entry section-content">
+          <div class="tl-entry scroll-reveal">
             <div class="dot"></div>
 
-            <span class="period">07.2022 – 08.2025</span>
+            <span class="period">07.2022 - 08.2025</span>
             <div class="card">
               <h3>Full Stack Software Engineer</h3>
               <p style="color: var(--accent)">
@@ -706,29 +953,43 @@
               <ul class="bullets">
                 <li>
                   <b>Full-stack implementation</b> of DeskNow, an enterprise
-                  smart-office platform, where I developed the custom Chatbot to
-                  automate real-time resource booking and user support.
-                  https://desknow.teleconsys.it
+                  smart-office platform, built using <b>C# and .NET</b>.I worked
+                  closely with end users to understand requirements and improve
+                  usability, contributing directly to the user experience and
+                  system design. Additionally, I designed and developed a custom
+                  <b>chatbot</b> to automate real-time resource booking and
+                  provide user support.
                 </li>
                 <li>
                   <b>Lead Full-Stack Developer</b> for Nucleco, where I managed
                   the entire software lifecycle for radiological waste
                   management, overseeing stakeholder requirements, system
-                  architecture, and the end-to-end deploymentof mission-critical
-                  features to optimize data reliability and complex operational
-                  workflows.
-                </li>
-                <li>
-                  <b>Legacy Project Optimization</b>, focused on refactoring
-                  existing applications to significantly enhance UI/UX design,
-                  system performance, and overall graphic consistency, ensuring
-                  a modern and seamless experience for real-world users.
+                  architecture, and the end-to-end deployment of
+                  mission-critical features to optimize data reliability and
+                  complex operational workflows.
                 </li>
                 <li>
                   Innovation Team specialist focused on architecting an
                   <b>AI-driven RAG</b> (Retrieval-Augmented Generation)system
                   for the legal sector, leveraging LLMs and Vector Databases to
                   automate complex document analysis and litigation workflows.
+                </li>
+                <li>
+                  <b>Legacy Project Optimization</b>, focused on refactoring
+                  existing applications to significantly enhance UI/UX design,
+                  system performance, and overall graphic consistency, ensuring
+                  a modern and seamless experience for real-world users.
+                  <br />
+                  <a href="CNS.html" class="btn btn-sm btn-ghost">
+                    <span class="material-symbols-outlined">
+                      arrow_right_alt </span
+                    >View CNS Process</a
+                  >
+                  <a href="SAL.html" class="btn btn-sm btn-ghost">
+                    <span class="material-symbols-outlined">
+                      arrow_right_alt </span
+                    >View SAL Process</a
+                  >
                 </li>
               </ul>
             </div>
@@ -741,14 +1002,14 @@
         <h2>Education</h2>
 
         <div class="tl-wrap">
-          <div class="tl-entry section-content">
+          <div class="tl-entry scroll-reveal">
             <div class="dot"></div>
 
-            <span class="period">2020 – 2022</span>
+            <span class="period">2020 - 2022</span>
             <div class="card">
               <h3>Master's Degree in Artificial Intelligence and Robotics</h3>
               <p style="color: var(--accent)">
-                <b><i>La Sapienza – University of Rome</i></b>
+                <b><i>La Sapienza - University of Rome</i></b>
               </p>
               <div class="divider"></div>
               <ul class="bullets">
@@ -775,57 +1036,53 @@
             </div>
           </div>
 
-          <div class="tl-entry section-content">
+          <div class="tl-entry scroll-reveal">
             <div class="dot"></div>
-            <span class="period">2017 – 2020</span>
+            <span class="period">2017 - 2020</span>
             <div class="card">
               <h3>Bachelor's Degree in Computer Engineering</h3>
               <p style="color: var(--accent)">
                 <b><i>University of Modena and Reggio Emilia</i></b>
               </p>
               <div class="divider"></div>
-              <ul class="bullets">
-                <li>
-                  Strong foundations in algorithms, data structures, networks
-                  and object-oriented programming.
-                </li>
-                <li>
-                  In partnership with Bosch and the Municipality of Mantova:
-                  engineered a monitoring system for IoT parking sensors with
-                  Java backend and Android app for real-time occupancy
-                  analytics.
-                </li>
-              </ul>
-              <p class="thesis">
-                Thesis:
-                <em>IoT applied to Mobility — Smart Parking with Bosch</em>
-              </p>
-              <p class="grade">Final grade: <strong>101/110</strong></p>
-              <div class="media-grid">
-                <iframe
-                  src="https://www.youtube.com/embed/KwLWS9lg2vg?autoplay=1&mute=1&loop=1&playlist=SNDNGj6GLJw"
-                  style="
-                    aspect-ratio: 9/16;
-                    width: 100%;
-                    max-width: 320px;
-                    height: auto;
-                    border-radius: 12px;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-                    display: block;
-                    margin: 0 auto;
-                  "
-                  allow="
-                    accelerometer;
-                    autoplay;
-                    clipboard-write;
-                    encrypted-media;
-                    gyroscope;
-                    picture-in-picture;
-                  "
-                  allowfullscreen
-                  frameborder="0"
-                >
-                </iframe>
+
+              <div class="project-card-split">
+                <div class="project-info">
+                  <ul class="bullets">
+                    <li>
+                      Strong foundations in algorithms, data structures,
+                      networks and object-oriented programming.
+                    </li>
+                    <li>
+                      In partnership with <b>Bosch</b> and the Municipality of
+                      Mantova: engineered a monitoring system for IoT parking
+                      sensors with Java backend and Android app for real-time
+                      occupancy analytics.
+                    </li>
+                  </ul>
+                  <p class="thesis">
+                    Thesis:
+                    <em>IoT applied to Mobility — Smart Parking with Bosch</em>
+                  </p>
+                  <p class="grade">Final grade: <strong>101/110</strong></p>
+                  <a
+                    href="https://www.youtube.com/watch?v=qdowMxKNMYE"
+                    class="btn btn-sm"
+                    ><span class="material-icons">open_in_new</span>View on
+                    YouTube</a
+                  >
+                  <a href="SmartParking.html" class="btn btn-sm btn-ghost">
+                    <span class="material-symbols-outlined">
+                      arrow_right_alt </span
+                    >View Process</a
+                  >
+                </div>
+                <div class="project-visual">
+                  <img
+                    src="assets/SmartParkingIndex.png"
+                    alt="Mockup Smart Parking"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -835,318 +1092,769 @@
       <!-- ── PROJECTS ─────────────────────────────────────── -->
       <section id="projects" class="section">
         <h2>Selected Projects</h2>
+        <div class="filter-bar">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="ux">UX / Web</button>
+          <button class="filter" data-filter="graphics">Graphics</button>
+          <button class="filter" data-filter="HRI">
+            Human Robot Interaction
+          </button>
+          <button class="filter" data-filter="ai">
+            Artificial Intelligence
+          </button>
+          <button class="filter" data-filter="robotics">Robotics</button>
+        </div>
 
-        <div class="card section-content">
-          <h3>UX Case Study · Engineering Firm Platform</h3>
+        <div class="card scroll-reveal" data-category="ux">
+          <div class="header-layout">
+            <h3>Smart parking</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">UX Research</span>
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i> Interaction Designer & Full-Stack Engineer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Complex technical services lacked a clear digital
-            experience, creating friction for users trying to navigate
-            professional offerings.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Applied UCD methodology, focusing on information
-            hierarchy and mobile-first interactions to simplify complex domain
-            knowledge.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> A responsive platform with intuitive navigation and
-            optimized performance across all devices.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Reduced user friction and improved engagement by
-            making professional services accessible on-the-go.
-          </p>
-          <div class="media-grid">
-            <iframe
-              src="https://www.youtube.com/embed/KwLWS9lg2vg?autoplay=1&mute=1&loop=1&playlist=KwLWS9lg2vg"
-              style="
-                aspect-ratio: 9/16;
-                width: 100%;
-                max-width: 320px;
-                height: auto;
-                border-radius: 12px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-                display: block;
-                margin: 0 auto;
-              "
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-              "
-              allowfullscreen
-              frameborder="0"
-            >
-            </iframe>
+
+          <div class="project-card-split">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b>Drivers in Mantova faced high frustration and
+                increased CO2 emissions due to urban traffic generated by the
+                constant search for available parking spots.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b>I bridged the gap between Bosch hardware
+                engineering and user experience, managing IoT constraints like
+                LoRaWAN latency through collaborative design and predictive data
+                modeling.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> I designed an Android interface that utilizes
+                QR code synchronization for privacy-compliant tracking and
+                features proactive UI fallbacks to redirect users if a spot is
+                taken by a non-app user.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b>The system significantly reduced cruising time and
+                fuel waste, while predictive analytics empowered users to plan
+                trips based on 24-hour occupancy trends.
+              </p>
+              <div style="margin-top: 24px">
+                <a href="SmartParking.html" class="btn btn-sm btn-ghost">
+                  <span class="material-symbols-outlined">
+                    arrow_right_alt </span
+                  >View Process</a
+                >
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <img src="assets/SmartParkingIndex.png" alt="Smart Parking App" />
+            </div>
           </div>
-          <a href="https://www.stalandinimaduzzi.it/" class="btn btn-sm"
-            >Visit Website</a
-          >
         </div>
 
-        <div class="card section-content">
-          <h3>UX Case Study · Interactive RSVP Experience</h3>
+        <div class="card scroll-reveal" data-category="ux">
+          <div class="header-layout">
+            <h3>UX Case Study · Engineering Firm Platform</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">UX Research</span>
+                <span class="skill-tag" style="--i: 2"
+                  >Information Architecture</span
+                >
+                <span class="skill-tag" style="--i: 3">Interaction Design</span>
+                <span class="skill-tag" style="--i: 4">Responsive Design</span>
+                <span class="skill-tag" style="--i: 5"
+                  >Frontend Development (HTML, CSS, JS)</span
+                >
+                <span class="skill-tag" style="--i: 6"
+                  >Performance Optimization</span
+                >
+              </div>
+            </div>
+          </div>
+          <p style="color: var(--accent)">
+            <b><i> Interaction Designer & Full-Stack Engineer</i></b>
+          </p>
+
+          <div class="project-card-split reversed">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b> Complex technical services lacked a clear
+                digital experience, creating friction for users trying to
+                navigate professional offerings.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b> Applied UCD methodology, focusing on
+                information hierarchy and mobile-first interactions to simplify
+                complex domain knowledge.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> A responsive platform with intuitive navigation
+                and optimized performance across all devices.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b> Reduced user friction and improved engagement by
+                making professional services accessible on-the-go.
+              </p>
+              <div style="margin-top: 24px">
+                <a href="https://www.stalandinimaduzzi.it/" class="btn btn-sm">
+                  <span class="material-icons">open_in_new</span>
+                  Visit Website</a
+                >
+                <a href="ArchitectureCompany.html" class="btn btn-sm btn-ghost">
+                  <span class="material-symbols-outlined">
+                    arrow_right_alt </span
+                  >View Process</a
+                >
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <img
+                src="assets/WebsiteLandini.png"
+                alt="Mockup Mobile STA Landini & Maduzzi"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="card scroll-reveal" data-category="ux">
+          <div class="header-layout">
+            <h3>TITAN</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">3 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">UX Design</span>
+                <span class="skill-tag" style="--i: 2"
+                  >Frontend Development (React.js)</span
+                >
+                <span class="skill-tag" style="--i: 3"
+                  >Backend Development (Swift)</span
+                >
+                <span class="skill-tag" style="--i: 4"
+                  >Requirements analysis</span
+                >
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>Interaction Designer & Frontend Developer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Traditional invitations lack accessibility for users
-            with low digital literacy, leading to confusion and high drop-off
-            rates.
+
+          <div class="project-card-split">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b> The reliance on error-prone Excel spreadsheets
+                led to frequent data loss, impossible component tracking, and
+                high cognitive load for operators during LiDAR production.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b> A collaborative, user-centered methodology was
+                adopted, involving on-site workshops, iterative prototyping, and
+                close synergy with developers to ensure technical feasibility.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> A high-legibility interface was developed and
+                integrated with the Odoo ERP, featuring role-based access
+                control and specialized layouts designed for fast data entry in
+                industrial environments.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b> The solution achieved a 45% reduction in human
+                error, cut onboarding time by 30%, and saved management 12 hours
+                per week through automated data synchronization.
+              </p>
+              <div style="margin-top: 24px">
+                <a href="TITAN.html" class="btn btn-sm btn-ghost">
+                  <span class="material-symbols-outlined">
+                    arrow_right_alt </span
+                  >View Process</a
+                >
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <img
+                src="assets/TITAN.png"
+                alt="TITAN Mockup"
+                style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card scroll-reveal" data-category="ux">
+          <div class="header-layout">
+            <h3>SAL</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">3 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">UX Design</span>
+                <span class="skill-tag" style="--i: 2">Figma</span>
+                <span class="skill-tag" style="--i: 3"
+                  >Requirements analysis</span
+                >
+              </div>
+            </div>
+          </div>
+          <p style="color: var(--accent)">
+            <b><i>Interaction Designer & Frontend Developer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Prioritized clarity and visual affordances,
-            focusing on the mental models of elderly users to ensure a
-            frictionless flow.
+
+          <div class="project-card-split reversed">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b> Fragmented business logic across departments and
+                difficult-to-interpret service data led to administrative
+                inefficiencies and frequent disputes regarding extra billing
+                costs.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b> I led collaborative Figma workshops to map
+                complex contract lifecycles and implemented an Atomic Design
+                system to ensure corporate brand consistency and scalability.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> I developed a modular platform featuring
+                high-contrast dashboards for critical deadlines and automated
+                summary tables that calculate Delta variances to justify costs
+                with evidence-based data.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b> The solution transformed raw data into
+                transparent billing authorization requests, reducing cognitive
+                load for operators and ensuring financial clarity for final
+                clients.
+              </p>
+              <div style="margin-top: 24px">
+                <a href="SmartParking.html" class="btn btn-sm btn-ghost">
+                  <span class="material-symbols-outlined">
+                    arrow_right_alt </span
+                  >View Process</a
+                >
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <img
+                src="assets/SAL.png"
+                alt="SAL Mockup"
+                style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card scroll-reveal" data-category="ux">
+          <div class="header-layout">
+            <h3>UX Case Study · Interactive RSVP Experience</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">UX Design</span>
+                <span class="skill-tag" style="--i: 2">Interaction Design</span>
+                <span class="skill-tag" style="--i: 3">User Flows</span>
+                <span class="skill-tag" style="--i: 4"
+                  >Usability Optimization</span
+                >
+                <span class="skill-tag" style="--i: 5">Micro-interactions</span>
+                <span class="skill-tag" style="--i: 6"
+                  >Frontend Development</span
+                >
+              </div>
+            </div>
+          </div>
+          <p style="color: var(--accent)">
+            <b><i>Interaction Designer & Frontend Developer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Solution:</b> A minimalist web app with a simplified RSVP system
-            and clear feedback loops.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Achieved high completion rates across all age groups
-            through an inclusive and delightful user journey.
-          </p>
-          <a
-            href="https://deniselandini.github.io/save_the_date/"
-            class="btn btn-sm"
-            >Explore Project</a
-          >
-          <a
-            href="https://github.com/deniselandini/save_the_date"
-            class="btn btn-sm btn-ghost"
-            >View on GitHub</a
-          >
+
+          <div class="project-card-split">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b> Traditional invitations lack accessibility for
+                users with low digital literacy, leading to confusion and high
+                drop-off rates.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b> Prioritized clarity and visual affordances,
+                focusing on the mental models of elderly users to ensure a
+                frictionless flow.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> A minimalist web app with a simplified RSVP
+                system and clear feedback loops.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b> Achieved high completion rates across all age
+                groups through an inclusive and delightful user journey.
+              </p>
+              <a
+                href="https://deniselandini.github.io/wedding/"
+                class="btn btn-sm"
+              >
+                <span class="material-icons">open_in_new</span>Explore
+                Project</a
+              >
+              <a
+                href="https://github.com/deniselandini/wedding"
+                class="btn btn-sm btn-ghost"
+                ><span class="material-icons">code</span>View on GitHub</a
+              >
+            </div>
+
+            <div class="project-visual">
+              <img
+                src="assets/Wedding.png"
+                alt="Save the date for wedding"
+                style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+              />
+            </div>
+          </div>
         </div>
 
-        <div class="card section-content">
-          <h3>Interactive Graphics · Physics-Based Prototyping</h3>
+        <div class="card scroll-reveal" data-category="graphics">
+          <div class="header-layout">
+            <h3>Interactive Graphics · Physics-Based Prototyping</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">WebGL</span>
+                <span class="skill-tag" style="--i: 2">Three.js</span>
+                <span class="skill-tag" style="--i: 3">Computer Graphics</span>
+                <span class="skill-tag" style="--i: 4"
+                  >Real-time Rendering</span
+                >
+                <span class="skill-tag" style="--i: 5"
+                  >Collision Detection</span
+                >
+                <span class="skill-tag" style="--i: 6">Shader Programming</span>
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>Graphics Programmer & Interaction Designer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Creating responsive digital environments requires
-            seamless integration of physics and user proximity.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Developed a 3D scene in WebGL focused on real-time
-            spatial interactions and collision detection.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> An immersive world where entities react dynamically
-            to the character's presence through fluid animations and lighting.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Demonstrated the ability to build high-fidelity
-            prototypes that enhance user delight through responsive
-            environmental feedback.
-          </p>
-          <a
-            href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
-          <a
-            href="https://sapienzainteractivegraphicscourse.github.io/final-project-la_dl-team/"
-            class="btn btn-sm btn-ghost"
-            >Play the Game
-          </a>
+
+          <div class="project-card-split reversed">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b> Creating responsive digital environments
+                requires seamless integration of physics and user proximity.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b> Developed a 3D scene in WebGL focused on
+                real-time spatial interactions and collision detection.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> An immersive world where entities react
+                dynamically to the character's presence through fluid animations
+                and lighting.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b> Demonstrated the ability to build high-fidelity
+                prototypes that enhance user delight through responsive
+                environmental feedback.
+              </p>
+              <div style="margin-top: 24px">
+                <a
+                  href="https://sapienzainteractivegraphicscourse.github.io/final-project-la_dl-team/"
+                  class="btn btn-sm"
+                  ><span class="material-icons">open_in_new</span>Play the Game
+                </a>
+                <a
+                  href="https://github.com/deniselandini/Interactive-Graphics/tree/main/Final%20project"
+                  class="btn btn-sm btn-ghost"
+                  ><span class="material-icons">code</span>View on GitHub</a
+                >
+              </div>
+            </div>
+
+            <div class="project-visual">
+              <img src="assets/SuperMario.png" alt="Mockup Super Mario" />
+            </div>
+          </div>
         </div>
 
-        <div class="card section-content">
-          <h3>Medical UX · High-Precision Stroke Detection</h3>
+        <div class="card scroll-reveal" data-category="HRI">
+          <div class="header-layout">
+            <h3>Human Robot Interaction · Gesture and Face Recognition</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">Computer Vision</span>
+                <span class="skill-tag" style="--i: 2">MediaPipe</span>
+                <span class="skill-tag" style="--i: 3"
+                  >Human Pose Estimation</span
+                >
+                <span class="skill-tag" style="--i: 4"
+                  >Control Systems (PID)</span
+                >
+                <span class="skill-tag" style="--i: 5"
+                  >Multimodal Interaction</span
+                >
+                <span class="skill-tag" style="--i: 6">Real-time Systems</span>
+              </div>
+            </div>
+          </div>
+          <p style="color: var(--accent)">
+            <b><i>Graphics Programmer & Interaction Designer</i></b>
+          </p>
+
+          <div class="project-card-split">
+            <div class="project-info">
+              <p class="timeline-text">
+                <b>Problem:</b> Drone control is often unintuitive and reliant
+                on manual interfaces (e.g., joysticks), limiting accessibility
+                and natural human interaction.
+              </p>
+              <p class="timeline-text">
+                <b>Approach:</b> A multimodal computer vision approach using ML
+                (MediaPipe) to combine hand gestures, face tracking, and
+                holistic body pose recognition.
+              </p>
+              <p class="timeline-text">
+                <b>Solution:</b> A modular system that translates visual human
+                inputs into real-time drone commands, enhanced with adaptive
+                control (PID) and state-based logic.
+              </p>
+              <p class="timeline-text">
+                <b>Impact:</b> Enables more natural and intuitive human-drone
+                interaction, with potential applications in assistive
+                technology, surveillance, and user-centered autonomous systems.
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=9-hA28TNSSU"
+                class="btn btn-sm"
+                ><span class="material-icons">open_in_new</span>View on
+                YouTube</a
+              >
+              <a
+                href="https://github.com/deniselandini/Human-Robot-Interaction-Reasoning-Agents/tree"
+                class="btn btn-sm btn-ghost"
+                ><span class="material-icons">code</span>View on GitHub</a
+              >
+            </div>
+            <div class="project-visual">
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/deniselandini/main/HRI_Denise.gif"
+                alt="Human Drone Interaction"
+                style="width: 100%; border-radius: 20px; box-shadow: var(--dp4)"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="card scroll-reveal" data-category="ai">
+          <div class="header-layout">
+            <h3>Neural Network · High-Precision Stroke Detection</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">Deep Learning</span>
+                <span class="skill-tag" style="--i: 2">PyTorch / Keras</span>
+                <span class="skill-tag" style="--i: 3">Medical Imaging</span>
+                <span class="skill-tag" style="--i: 4">Computer Vision</span>
+                <span class="skill-tag" style="--i: 5"
+                  >Neural Network Architecture</span
+                >
+                <span class="skill-tag" style="--i: 6">Data Processing</span>
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>Deep Learning Engineer & UX Researcher</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> In medical diagnostics, AI inaccuracy can lead to
-            clinical distrust and diagnostic errors.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Utilized Quaternion Neural Networks to capture
-            complex MRI correlations, reducing false positives for better
-            clinical reliability.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> An X-Net implementation that provides stable and
-            precise lesion segmentation boundaries.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Provided a more reliable decision-support tool for
-            specialists, prioritizing accuracy and safety in critical
-            environments.
-          </p>
-          <div class="media-grid">
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Neural-Network/main/READMEImages/result1.png"
-              alt="Lesion segmented"
-            />
+
+          <div class="">
+            <p class="timeline-text">
+              <b>Problem:</b> In medical diagnostics, AI inaccuracy can lead to
+              clinical distrust and diagnostic errors.
+            </p>
+            <p class="timeline-text">
+              <b>Approach:</b> Utilized Quaternion Neural Networks to capture
+              complex MRI correlations, reducing false positives for better
+              clinical reliability.
+            </p>
+            <p class="timeline-text">
+              <b>Solution:</b> An X-Net implementation that provides stable and
+              precise lesion segmentation boundaries.
+            </p>
+            <p class="timeline-text">
+              <b>Impact:</b> Provided a more reliable decision-support tool for
+              specialists, prioritizing accuracy and safety in critical
+              environments.
+            </p>
+            <div class="media-grid">
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Neural-Network/main/READMEImages/result1.png"
+                alt="Lesion segmented"
+              />
+            </div>
+            <a
+              href="https://github.com/deniselandini/Neural-Network"
+              class="btn btn-sm btn-ghost"
+              ><span class="material-icons">code</span>View on GitHub</a
+            >
           </div>
-          <a
-            href="https://github.com/deniselandini/Neural-Network"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
         </div>
 
-        <div class="card section-content">
-          <h3>Digital Trust · Image Forgery Detection System</h3>
+        <div class="card scroll-reveal" data-category="ai">
+          <div class="header-layout">
+            <h3>Digital Trust · Image Forgery Detection System</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">Computer Vision</span>
+                <span class="skill-tag" style="--i: 2">Deep Learning</span>
+                <span class="skill-tag" style="--i: 3">Image Processing</span>
+                <span class="skill-tag" style="--i: 4">Feature Extraction</span>
+                <span class="skill-tag" style="--i: 5">CNN Architectures</span>
+                <span class="skill-tag" style="--i: 6"
+                  >Research Prototyping</span
+                >
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>Computer Vision Researcher</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Digital deception through image splicing undermines
-            user trust in online information and security.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Enhanced RRU-Net with a Feature Selection Module
-            (FSM) to adaptively highlight informative artifacts of tampering.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> A robust detection model that identifies subtle
-            manipulation in authentic-looking images.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Contributed to a safer web ecosystem by providing
-            technical solutions for privacy and integrity verification.
-          </p>
-          <div class="media-grid">
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Vision-and-Perception/main/READMEImages/result1.png"
-              alt="Sample output from RRU-Net"
-            />
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Vision-and-Perception/main/READMEImages/result2.png"
-              alt="Sample output from RRU-Net with FSM"
-            />
+
+          <div class="">
+            <p class="timeline-text">
+              <b>Problem:</b> Digital deception through image splicing
+              undermines user trust in online information and security.
+            </p>
+            <p class="timeline-text">
+              <b>Approach:</b> Enhanced RRU-Net with a Feature Selection Module
+              (FSM) to adaptively highlight informative artifacts of tampering.
+            </p>
+            <p class="timeline-text">
+              <b>Solution:</b> A robust detection model that identifies subtle
+              manipulation in authentic-looking images.
+            </p>
+            <p class="timeline-text">
+              <b>Impact:</b> Contributed to a safer web ecosystem by providing
+              technical solutions for privacy and integrity verification.
+            </p>
+            <div class="media-grid">
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Vision-and-Perception/main/READMEImages/result1.png"
+                alt="Sample output from RRU-Net"
+              />
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Vision-and-Perception/main/READMEImages/result2.png"
+                alt="Sample output from RRU-Net with FSM"
+              />
+            </div>
+            <a
+              href="https://github.com/deniselandini/Vision-and-Perception"
+              class="btn btn-sm btn-ghost"
+              ><span class="material-icons">code</span>View on GitHub</a
+            >
           </div>
-          <a
-            href="https://github.com/deniselandini/Vision-and-Perception"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
         </div>
 
-        <div class="card section-content">
-          <h3>Explainable AI · Agent Behavior Transparency</h3>
+        <div class="card scroll-reveal" data-category="ai">
+          <div class="header-layout">
+            <h3>Explainable AI · Agent Behavior Transparency</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">6 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1"
+                  >Reinforcement Learning</span
+                >
+                <span class="skill-tag" style="--i: 2"
+                  >Explainable AI (XAI)</span
+                >
+                <span class="skill-tag" style="--i: 3">Agent Modeling</span>
+                <span class="skill-tag" style="--i: 4">Reward Engineering</span>
+                <span class="skill-tag" style="--i: 5">Python</span>
+                <span class="skill-tag" style="--i: 6"
+                  >Simulation Environments</span
+                >
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>AI Interaction Researcher & Engineer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Reinforcement Learning agents act as "black boxes,"
-            making it difficult for users to trust or understand autonomous
-            decisions.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Implemented a framework to translate complex
-            rewards into "intended outcomes," making agent logic human-readable.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> A system that generates semantic explanations for
-            agent actions based on future predicted states.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Enhanced user trust by bridging the gap between
-            complex AI logic and intuitive human understanding.
-          </p>
-          <div class="media-grid">
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Reinforcement-Learning/main/READMEimages/env1_video.gif"
-              alt="Video of one epoch Carpole environment"
-            />
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Reinforcement-Learning/main/READMEimages/env3_video.gif"
-              alt="Video of one epoch of our environment"
-            />
+
+          <div class="">
+            <p class="timeline-text">
+              <b>Problem:</b> Reinforcement Learning agents act as "black
+              boxes," making it difficult for users to trust or understand
+              autonomous decisions.
+            </p>
+            <p class="timeline-text">
+              <b>Approach:</b> Implemented a framework to translate complex
+              rewards into "intended outcomes," making agent logic
+              human-readable.
+            </p>
+            <p class="timeline-text">
+              <b>Solution:</b> A system that generates semantic explanations for
+              agent actions based on future predicted states.
+            </p>
+            <p class="timeline-text">
+              <b>Impact:</b> Enhanced user trust by bridging the gap between
+              complex AI logic and intuitive human understanding.
+            </p>
+            <div class="media-grid">
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Reinforcement-Learning/main/READMEimages/env1_video.gif"
+                alt="Video of one epoch Carpole environment"
+              />
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Reinforcement-Learning/main/READMEimages/env3_video.gif"
+                alt="Video of one epoch of our environment"
+              />
+            </div>
+            <a
+              href="https://github.com/deniselandini/Reinforcement-Learning"
+              class="btn btn-sm btn-ghost"
+              ><span class="material-icons">code</span>View on GitHub</a
+            >
           </div>
-          <a
-            href="https://github.com/deniselandini/Reinforcement-Learning"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
         </div>
 
-        <div class="card section-content">
-          <h3>Medical Robotics · Musculoskeletal Motion Analysis</h3>
+        <div class="card scroll-reveal" data-category="robotics">
+          <div class="header-layout">
+            <h3>Medical Robotics · Musculoskeletal Motion Analysis</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">5 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1">Biomechanics</span>
+                <span class="skill-tag" style="--i: 2">OpenSim</span>
+                <span class="skill-tag" style="--i: 3">Robot Modeling</span>
+                <span class="skill-tag" style="--i: 4">OpenSim</span>
+                <span class="skill-tag" style="--i: 5">Kinematics</span>
+                <span class="skill-tag" style="--i: 6">Data Analysis</span>
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>Biomechanical Modeler & Robotics Engineer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Assistive devices often fail because they don't
-            account for diverse biomechanical needs.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Developed a dual-scale musculoskeletal model to
-            evaluate joint interactions and motor dynamics.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> A simulation framework that provides quantitative
-            data for personalized rehabilitation and robotic design.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Enabled more user-centric design for assistive
-            robotics, ensuring devices adapt to the user's specific physical
-            constraints.
-          </p>
-          <div class="media-grid">
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Medical-Robotics/main/READMEimages/videoSiline.gif"
-              alt="Simulation in OpenSim Siline"
-            />
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Medical-Robotics/main/READMEimages/videoLina.gif"
-              alt="Simulation in OpenSim Lina"
-            />
+
+          <div class="">
+            <p class="timeline-text">
+              <b>Problem:</b> Assistive devices often fail because they don't
+              account for diverse biomechanical needs.
+            </p>
+            <p class="timeline-text">
+              <b>Approach:</b> Developed a dual-scale musculoskeletal model to
+              evaluate joint interactions and motor dynamics.
+            </p>
+            <p class="timeline-text">
+              <b>Solution:</b> A simulation framework that provides quantitative
+              data for personalized rehabilitation and robotic design.
+            </p>
+            <p class="timeline-text">
+              <b>Impact:</b> Enabled more user-centric design for assistive
+              robotics, ensuring devices adapt to the user's specific physical
+              constraints.
+            </p>
+            <div class="media-grid">
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Medical-Robotics/main/READMEimages/videoSiline.gif"
+                alt="Simulation in OpenSim Siline"
+              />
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Medical-Robotics/main/READMEimages/videoLina.gif"
+                alt="Simulation in OpenSim Lina"
+              />
+            </div>
+            <a
+              href="https://github.com/deniselandini/Medical-Robotics"
+              class="btn btn-sm btn-ghost"
+              ><span class="material-icons">code</span>View on GitHub</a
+            >
           </div>
-          <a
-            href="https://github.com/deniselandini/Medical-Robotics"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
         </div>
 
-        <div class="card section-content">
-          <h3>Autonomous and Mobile Robotics · Predictable Path Planning</h3>
+        <div class="card scroll-reveal" data-category="robotics">
+          <div class="header-layout">
+            <h3>Autonomous and Mobile Robotics · Predictable Path Planning</h3>
+
+            <div class="skills-wrapper">
+              <button class="skills-trigger">5 SKILLS</button>
+
+              <div class="skills-popout">
+                <span class="skill-tag" style="--i: 1"
+                  >Path Planning (A*/D*)</span
+                >
+                <span class="skill-tag" style="--i: 2"
+                  >Robotics Algorithms</span
+                >
+                <span class="skill-tag" style="--i: 3">Kinematics</span>
+                <span class="skill-tag" style="--i: 4">CopeliaSim</span>
+                <span class="skill-tag" style="--i: 5">Navigation Systems</span>
+              </div>
+            </div>
+          </div>
           <p style="color: var(--accent)">
             <b><i>Robotics Software Engineer</i></b>
           </p>
-          <p class="timeline-text">
-            <b>Problem:</b> Robots in human environments often move in
-            unpredictable ways, causing user anxiety or safety concerns.
-          </p>
-          <p class="timeline-text">
-            <b>Approach:</b> Integrated A* algorithms with kinematic constraints
-            to ensure paths are smooth and human-readable.
-          </p>
-          <p class="timeline-text">
-            <b>Solution:</b> A grid-based navigation system for differential
-            drive robots that prioritizes collision-free, fluid movement.
-          </p>
-          <p class="timeline-text">
-            <b>Impact:</b> Improved the human-robot interaction experience by
-            making autonomous behavior more predictable and reliable.
-          </p>
-          <div class="media-grid">
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Autonomous-Mobile-Robotics/main/READMEimages/envTestFDS_planning.gif"
-              alt="AMR Planning Animation"
-            />
-            <img
-              src="https://raw.githubusercontent.com/deniselandini/Autonomous-Mobile-Robotics/main/READMEimages/envTestFDS.gif"
-              alt="AMR Execution Animation"
-            />
+
+          <div class="">
+            <p class="timeline-text">
+              <b>Problem:</b> Robots in human environments often move in
+              unpredictable ways, causing user anxiety or safety concerns.
+            </p>
+            <p class="timeline-text">
+              <b>Approach:</b> Integrated A* algorithms with kinematic
+              constraints to ensure paths are smooth and human-readable.
+            </p>
+            <p class="timeline-text">
+              <b>Solution:</b> A grid-based navigation system for differential
+              drive robots that prioritizes collision-free, fluid movement.
+            </p>
+            <p class="timeline-text">
+              <b>Impact:</b> Improved the human-robot interaction experience by
+              making autonomous behavior more predictable and reliable.
+            </p>
+            <div class="media-grid">
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Autonomous-Mobile-Robotics/main/READMEimages/envTestFDS_planning.gif"
+                alt="AMR Planning Animation"
+              />
+              <img
+                src="https://raw.githubusercontent.com/deniselandini/Autonomous-Mobile-Robotics/main/READMEimages/envTestFDS.gif"
+                alt="AMR Execution Animation"
+              />
+            </div>
+            <a
+              href="https://github.com/deniselandini/Autonomous-Mobile-Robotics"
+              class="btn btn-sm btn-ghost"
+              ><span class="material-icons">code</span>View on GitHub</a
+            >
           </div>
-          <a
-            href="https://github.com/deniselandini/Autonomous-Mobile-Robotics"
-            class="btn btn-sm"
-            >View on GitHub</a
-          >
         </div>
       </section>
 
@@ -1240,6 +1948,18 @@
       </section>
     </div>
 
+    <footer
+      style="
+        text-align: center;
+        padding: 0 0 60px 0;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      "
+    >
+      &copy; 2026 Denise Landini — UX/UI Designer
+    </footer>
+    <div class="spacer" style="margin-top: 40px"></div>
+
     <!-- FLOATING FOOTER -->
     <footer class="floating-footer">
       <a href="mailto:deniselandini98@gmail.com">Email</a>
@@ -1252,140 +1972,78 @@
       <a href="denise_landini_cv.pdf" target="_blank">CV</a>
     </footer>
 
-    <!-- ── CANVAS PARTICLES ─────────────────────────────────────── -->
     <script>
-      const canvas = document.getElementById("bg-canvas");
-      const ctx = canvas.getContext("2d");
-      let W, H;
-      const particles = [];
-      const mouse = { x: -9999, y: -9999 };
+      /*const wrapper = document.getElementById("skillsWrapper");
+      const btn = document.getElementById("skillsBtn");
 
-      window.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
+      btn.addEventListener("click", () => {
+        wrapper.classList.toggle("active");
       });
 
-      function resize() {
-        W = canvas.width = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-      }
-      window.addEventListener("resize", resize);
-      resize();
-
-      class Particle {
-        constructor() {
-          this.reset();
+      document.addEventListener("click", (event) => {
+        if (!wrapper.contains(event.target)) {
+          wrapper.classList.remove("active");
         }
+      });*/
+      // Select all wrappers and buttons by class
+      const skillWrappers = document.querySelectorAll(".skills-wrapper");
 
-        reset() {
-          this.x = Math.pow(Math.random(), 1.5) * W;
-          this.y = Math.pow(Math.random(), 1.5) * H * 1.4;
-          if (this.x > W * 0.75 && this.y > H * 0.75) {
-            this.reset();
-            return;
-          }
-          this.size = Math.random() * 14 + 7;
-          const shapes = ["plus", "asterisk", "circle", "dot"];
-          this.shape = shapes[Math.floor(Math.random() * shapes.length)];
-          this.angle = Math.random() * Math.PI * 2;
-          this.rotSpeed = (Math.random() - 0.5) * 0.018;
-          this.vx = (Math.random() - 0.5) * 0.28;
-          this.vy = (Math.random() - 0.5) * 0.28;
-          this.scale = 1;
-          this.scaleDir = Math.random() > 0.5 ? 0.004 : -0.004;
-        }
+      skillWrappers.forEach((wrapper) => {
+        const btn = wrapper.querySelector(".skills-trigger");
 
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-          this.angle += this.rotSpeed;
-          this.scale += this.scaleDir;
-          if (this.scale > 1.2 || this.scale < 0.8) this.scaleDir *= -1;
+        // Toggle 'active' on the specific wrapper clicked
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevents the document click listener from firing immediately
+          wrapper.classList.toggle("active");
 
-          const dx = mouse.x - this.x;
-          const dy = mouse.y - this.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const radius = 140;
-          if (dist < radius) {
-            const force = (radius - dist) / radius;
-            const angle = Math.atan2(dy, dx);
-            this.x -= Math.cos(angle) * force * 3;
-            this.y -= Math.sin(angle) * force * 3;
-          }
-
-          if (
-            this.x < -60 ||
-            this.y < -60 ||
-            this.x > W + 60 ||
-            this.y > H + 60
-          )
-            this.reset();
-        }
-
-        draw() {
-          ctx.save();
-          ctx.translate(this.x, this.y);
-          ctx.rotate(this.angle);
-          ctx.scale(this.scale, this.scale);
-          ctx.strokeStyle = "#e8a5a5";
-          ctx.fillStyle = "#e8a5a5";
-          ctx.lineWidth = 1.8;
-          ctx.globalAlpha = 0.45;
-          ctx.beginPath();
-
-          if (this.shape === "plus") {
-            ctx.moveTo(-this.size / 2, 0);
-            ctx.lineTo(this.size / 2, 0);
-            ctx.moveTo(0, -this.size / 2);
-            ctx.lineTo(0, this.size / 2);
-            ctx.stroke();
-          } else if (this.shape === "asterisk") {
-            for (let i = 0; i < 3; i++) {
-              ctx.rotate(Math.PI / 3);
-              ctx.moveTo(-this.size / 2, 0);
-              ctx.lineTo(this.size / 2, 0);
+          // Optional: Close other open skill menus when one is opened
+          skillWrappers.forEach((otherWrapper) => {
+            if (otherWrapper !== wrapper) {
+              otherWrapper.classList.remove("active");
             }
-            ctx.stroke();
-          } else if (this.shape === "circle") {
-            ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
-            ctx.stroke();
-          } else {
-            ctx.arc(0, 0, this.size / 4, 0, Math.PI * 2);
-            ctx.fill();
-          }
-
-          ctx.restore();
-        }
-      }
-
-      for (let i = 0; i < 45; i++) particles.push(new Particle());
-
-      function animate() {
-        ctx.clearRect(0, 0, W, H);
-        particles.forEach((p) => {
-          p.update();
-          p.draw();
-        });
-        requestAnimationFrame(animate);
-      }
-      animate();
-
-      // ── SCROLL REVEAL ──
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("visible");
           });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
-      );
+        });
+      });
 
-      document
-        .querySelectorAll(".section-content")
-        .forEach((el) => observer.observe(el));
+      // Close all menus if clicking anywhere else on the page
+      document.addEventListener("click", (event) => {
+        skillWrappers.forEach((wrapper) => {
+          if (!wrapper.contains(event.target)) {
+            wrapper.classList.remove("active");
+          }
+        });
+      });
     </script>
+
+    <!-- SCROLL REVEAL -->
+    <script src="scripts/scrollReveal.js"></script>
+
+    <!-- LOAD LUCIDE -->
+    <script src="scripts/loadLucide.js"></script>
+
+    <!-- PROJECT FILTERS -->
     <script>
-      lucide.createIcons();
+      const filters = document.querySelectorAll(".filter");
+      const projects = document.querySelectorAll("#projects .card");
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filters.forEach((f) => f.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.dataset.filter;
+
+          projects.forEach((project) => {
+            const category = project.dataset.category;
+
+            if (filter === "all" || category.includes(filter)) {
+              project.style.display = "block";
+            } else {
+              project.style.display = "none";
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>
