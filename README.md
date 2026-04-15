@@ -13,12 +13,7 @@ and human-machine interaction. I transform advanced research into accessible, re
 ---
 
 ### 📫 Connect with me:
-- **LinkedIn**: [Denise Landini](https://www.linkedin.com/in/denise-landini-29073b152/)
+- **LinkedIn**: [Denise Landini]([https://www.linkedin.com/in/denise-landini-29073b152/](https://www.linkedin.com/in/denise-landini-29073b152/?locale=en-US))
 - **GitHub Portfolio**: [deniselandini.github.io](https://deniselandini.github.io/deniselandini/)
 
 ---
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=deniselandini&show_icons=true&theme=radical" alt="Denise's GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=deniselandini&layout=compact&theme=radical" alt="Top Languages" />
-</p>
